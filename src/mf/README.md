@@ -14,29 +14,29 @@ uv run python dip_analyzer.py
 | File | Purpose |
 |------|---------|
 | `dip_analyzer.py` | Main analyzer - run this |
-| `mf_funds.py` | Load funds from CSV |
+| `fund_loader.py` | Load funds from CSV |
 | `mf_funds.csv` | Your fund portfolio |
-| `trends_analyser.py` | NAV analysis |
-| `historical_dip_analysis.py` | Historical dip calculator |
+| `trend_analyzer.py` | NAV analysis |
+| `history_analyzer.py` | Historical dip calculator |
 
 ## 📊 How It Works
 
 6-factor robust scoring system:
-1. **Dip Depth** (0-25 pts) - Current vs peak NAV
-2. **Historical Context** (0-20 pts) - vs past dips
-3. **Mean Reversion** (0-15 pts) - Below average
-4. **Volatility** (0-15 pts) - Risk assessment
-5. **Recovery Speed** (0-15 pts) - Past resilience
+1. **Dip Depth** (0-40 pts) - Current vs peak NAV
+2. **Historical Context** (0-13 pts) - vs past dips
+3. **Mean Reversion** (0-13 pts) - Below average
+4. **Volatility** (0-11 pts) - Risk assessment
+5. **Recovery Speed** (0-13 pts) - Past resilience
 6. **Fund Category** (0-10 pts) - Type bonus
 
 **Total:** 0-100 points
 
 ## 🎯 Modes
 
-- **Ultra Conservative** - Score ≥ 70 (bear markets, crashes)
+- **Ultra Conservative** - Score ≥ 75 (bear markets, crashes)
 - **Conservative** ⭐ - Score ≥ 60 (normal conditions)
-- **Moderate** - Score ≥ 50 (bull markets)
-- **Aggressive** - Score ≥ 40 (strong uptrends)
+- **Moderate** - Score ≥ 55 (bull markets)
+- **Aggressive** - Score ≥ 45 (strong uptrends)
 
 ## 💡 Strategy
 

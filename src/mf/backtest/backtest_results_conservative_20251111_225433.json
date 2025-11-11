@@ -1,0 +1,1397 @@
+[
+  {
+    "fund_name": "Quant Small Cap Fund Direct Growth",
+    "fund_code": "120828",
+    "fund_type": "Small Cap",
+    "mode": "conservative",
+    "threshold": 60,
+    "backtest_start_date": "10-11-2024",
+    "backtest_end_date": "10-11-2025",
+    "backtest_days": 365,
+    "initial_capital": 100000,
+    "num_transactions": 10,
+    "total_invested": 100000,
+    "units_accumulated": 391.9651,
+    "avg_buy_nav": 255.12,
+    "capital_remaining": 0,
+    "strategy_final_value": 110344.83,
+    "strategy_return_pct": 10.34,
+    "baseline_buy_nav": 287.0017,
+    "baseline_units": 348.43,
+    "baseline_final_value": 98088.97,
+    "baseline_return_pct": -1.91,
+    "outperformance": 12.26,
+    "final_nav": 281.517,
+    "transactions": [
+      {
+        "date": "22-11-2024",
+        "nav": 277.3134,
+        "score": 72.84,
+        "dip_percentage": 9.53,
+        "amount_invested": 10000,
+        "units_bought": 36.0603,
+        "breakdown": {
+          "dip_depth": 20,
+          "historical_context": 12,
+          "mean_reversion": 9.84,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "23-12-2024",
+        "nav": 278.5914,
+        "score": 73.43,
+        "dip_percentage": 9.11,
+        "amount_invested": 10000,
+        "units_bought": 35.8949,
+        "breakdown": {
+          "dip_depth": 20,
+          "historical_context": 12,
+          "mean_reversion": 10.43,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "13-01-2025",
+        "nav": 263.0829,
+        "score": 79,
+        "dip_percentage": 14.17,
+        "amount_invested": 10000,
+        "units_bought": 38.0108,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "22-01-2025",
+        "nav": 264.9372,
+        "score": 79,
+        "dip_percentage": 13.57,
+        "amount_invested": 10000,
+        "units_bought": 37.7448,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "31-01-2025",
+        "nav": 260.3413,
+        "score": 86,
+        "dip_percentage": 15.06,
+        "amount_invested": 10000,
+        "units_bought": 38.4111,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 12,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "11-02-2025",
+        "nav": 249.3826,
+        "score": 94,
+        "dip_percentage": 18.64,
+        "amount_invested": 10000,
+        "units_bought": 40.099,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "20-02-2025",
+        "nav": 243.9854,
+        "score": 96,
+        "dip_percentage": 20.4,
+        "amount_invested": 10000,
+        "units_bought": 40.9861,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 12,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "04-03-2025",
+        "nav": 234.0309,
+        "score": 94,
+        "dip_percentage": 23.65,
+        "amount_invested": 10000,
+        "units_bought": 42.7294,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "13-03-2025",
+        "nav": 238.2476,
+        "score": 94,
+        "dip_percentage": 22.27,
+        "amount_invested": 10000,
+        "units_bought": 41.9731,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "25-03-2025",
+        "nav": 249.6534,
+        "score": 97,
+        "dip_percentage": 18.55,
+        "amount_invested": 10000,
+        "units_bought": 40.0555,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 13,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      }
+    ],
+    "portfolio_history": [
+      {
+        "date": "2024-11-22 00:00:00",
+        "nav": 277.3134,
+        "portfolio_value": 100000.0,
+        "units": 36.06028414061491,
+        "capital": 90000
+      },
+      {
+        "date": "2024-12-23 00:00:00",
+        "nav": 278.5914,
+        "portfolio_value": 100046.08504313171,
+        "units": 71.95514665252303,
+        "capital": 80000
+      },
+      {
+        "date": "2025-01-13 00:00:00",
+        "nav": 263.0829,
+        "portfolio_value": 98930.16865127106,
+        "units": 109.96597897951958,
+        "capital": 70000
+      },
+      {
+        "date": "2025-01-22 00:00:00",
+        "nav": 264.9372,
+        "portfolio_value": 99134.07856609276,
+        "units": 147.71077284010238,
+        "capital": 60000
+      },
+      {
+        "date": "2025-01-31 00:00:00",
+        "nav": 260.3413,
+        "portfolio_value": 98455.21462519694,
+        "units": 186.1218893245019,
+        "capital": 50000
+      },
+      {
+        "date": "2025-02-11 00:00:00",
+        "nav": 249.3826,
+        "portfolio_value": 96415.56067665652,
+        "units": 226.22091788543597,
+        "capital": 40000
+      },
+      {
+        "date": "2025-02-20 00:00:00",
+        "nav": 243.9854,
+        "portfolio_value": 95194.60113864526,
+        "units": 267.2069768873271,
+        "capital": 30000
+      },
+      {
+        "date": "2025-03-04 00:00:00",
+        "nav": 234.0309,
+        "portfolio_value": 92534.68928722036,
+        "units": 309.9363771502838,
+        "capital": 20000
+      },
+      {
+        "date": "2025-03-13 00:00:00",
+        "nav": 238.2476,
+        "portfolio_value": 93841.59800874996,
+        "units": 351.9095176981844,
+        "capital": 10000
+      },
+      {
+        "date": "2025-03-25 00:00:00",
+        "nav": 249.6534,
+        "portfolio_value": 97855.4075857119,
+        "units": 391.965050689123,
+        "capital": 0
+      },
+      {
+        "date": "2025-04-03 00:00:00",
+        "nav": 251.9653,
+        "portfolio_value": 98761.5915864001,
+        "units": 391.965050689123,
+        "capital": 0
+      },
+      {
+        "date": "2025-04-16 00:00:00",
+        "nav": 254.0015,
+        "portfolio_value": 99559.71082261328,
+        "units": 391.965050689123,
+        "capital": 0
+      },
+      {
+        "date": "2025-04-28 00:00:00",
+        "nav": 259.8979,
+        "portfolio_value": 101870.89354749663,
+        "units": 391.965050689123,
+        "capital": 0
+      },
+      {
+        "date": "2025-05-08 00:00:00",
+        "nav": 255.1321,
+        "portfolio_value": 100002.86650892241,
+        "units": 391.965050689123,
+        "capital": 0
+      },
+      {
+        "date": "2025-05-28 00:00:00",
+        "nav": 271.4398,
+        "portfolio_value": 106394.91496604541,
+        "units": 391.965050689123,
+        "capital": 0
+      }
+    ],
+    "error": null
+  },
+  {
+    "fund_name": "Nippon India Small Cap Fund Direct Growth",
+    "fund_code": "118778",
+    "fund_type": "Small Cap",
+    "mode": "conservative",
+    "threshold": 60,
+    "backtest_start_date": "10-11-2024",
+    "backtest_end_date": "10-11-2025",
+    "backtest_days": 365,
+    "initial_capital": 100000,
+    "num_transactions": 10,
+    "total_invested": 100000,
+    "units_accumulated": 590.8959,
+    "avg_buy_nav": 169.23,
+    "capital_remaining": 0,
+    "strategy_final_value": 112134.73,
+    "strategy_return_pct": 12.13,
+    "baseline_buy_nav": 194.1352,
+    "baseline_units": 515.1049,
+    "baseline_final_value": 97751.82,
+    "baseline_return_pct": -2.25,
+    "outperformance": 14.38,
+    "final_nav": 189.7707,
+    "transactions": [
+      {
+        "date": "13-01-2025",
+        "nav": 179.057,
+        "score": 79,
+        "dip_percentage": 12.4,
+        "amount_invested": 10000,
+        "units_bought": 55.8481,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "22-01-2025",
+        "nav": 179.9124,
+        "score": 76,
+        "dip_percentage": 11.98,
+        "amount_invested": 10000,
+        "units_bought": 55.5826,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "31-01-2025",
+        "nav": 176.9048,
+        "score": 82,
+        "dip_percentage": 13.45,
+        "amount_invested": 10000,
+        "units_bought": 56.5276,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 13,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "11-02-2025",
+        "nav": 168.3008,
+        "score": 84,
+        "dip_percentage": 17.66,
+        "amount_invested": 10000,
+        "units_bought": 59.4174,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "20-02-2025",
+        "nav": 165.0129,
+        "score": 94,
+        "dip_percentage": 19.27,
+        "amount_invested": 10000,
+        "units_bought": 60.6013,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "04-03-2025",
+        "nav": 156.7257,
+        "score": 94,
+        "dip_percentage": 23.32,
+        "amount_invested": 10000,
+        "units_bought": 63.8057,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "13-03-2025",
+        "nav": 158.9539,
+        "score": 94,
+        "dip_percentage": 22.23,
+        "amount_invested": 10000,
+        "units_bought": 62.9113,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "25-03-2025",
+        "nav": 169.508,
+        "score": 87,
+        "dip_percentage": 16.95,
+        "amount_invested": 10000,
+        "units_bought": 58.9943,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 13,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "03-04-2025",
+        "nav": 169.7834,
+        "score": 87,
+        "dip_percentage": 16.81,
+        "amount_invested": 10000,
+        "units_bought": 58.8986,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 13,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      },
+      {
+        "date": "16-04-2025",
+        "nav": 171.5003,
+        "score": 84.8,
+        "dip_percentage": 15.87,
+        "amount_invested": 10000,
+        "units_bought": 58.3089,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 13,
+          "mean_reversion": 10.8,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 10
+        }
+      }
+    ],
+    "portfolio_history": [
+      {
+        "date": "2025-01-13 00:00:00",
+        "nav": 179.057,
+        "portfolio_value": 100000.0,
+        "units": 55.848137743846934,
+        "capital": 90000
+      },
+      {
+        "date": "2025-01-22 00:00:00",
+        "nav": 179.9124,
+        "portfolio_value": 100047.77249702609,
+        "units": 111.4307435008709,
+        "capital": 80000
+      },
+      {
+        "date": "2025-01-31 00:00:00",
+        "nav": 176.9048,
+        "portfolio_value": 99712.63339287287,
+        "units": 167.9583221759549,
+        "capital": 70000
+      },
+      {
+        "date": "2025-02-11 00:00:00",
+        "nav": 168.3008,
+        "portfolio_value": 98267.51998887095,
+        "units": 227.37574621672,
+        "capital": 60000
+      },
+      {
+        "date": "2025-02-20 00:00:00",
+        "nav": 165.0129,
+        "portfolio_value": 97519.93127288499,
+        "units": 287.9770689011889,
+        "capital": 50000
+      },
+      {
+        "date": "2025-03-04 00:00:00",
+        "nav": 156.7257,
+        "portfolio_value": 95133.40770748706,
+        "units": 351.782813587606,
+        "capital": 40000
+      },
+      {
+        "date": "2025-03-13 00:00:00",
+        "nav": 158.9539,
+        "portfolio_value": 95917.25017272295,
+        "units": 414.69413567533076,
+        "capital": 30000
+      },
+      {
+        "date": "2025-03-25 00:00:00",
+        "nav": 169.508,
+        "portfolio_value": 100293.97355005397,
+        "units": 473.68840143269915,
+        "capital": 20000
+      },
+      {
+        "date": "2025-04-03 00:00:00",
+        "nav": 169.7834,
+        "portfolio_value": 100424.42733580852,
+        "units": 532.5869745558666,
+        "capital": 10000
+      },
+      {
+        "date": "2025-04-16 00:00:00",
+        "nav": 171.5003,
+        "portfolio_value": 101338.8259124235,
+        "units": 590.8959104586027,
+        "capital": 0
+      },
+      {
+        "date": "2025-04-28 00:00:00",
+        "nav": 174.4073,
+        "portfolio_value": 103056.56032412665,
+        "units": 590.8959104586027,
+        "capital": 0
+      },
+      {
+        "date": "2025-05-08 00:00:00",
+        "nav": 170.858,
+        "portfolio_value": 100959.29346913594,
+        "units": 590.8959104586027,
+        "capital": 0
+      },
+      {
+        "date": "2025-05-19 00:00:00",
+        "nav": 183.8519,
+        "portfolio_value": 108637.33584004398,
+        "units": 590.8959104586027,
+        "capital": 0
+      },
+      {
+        "date": "2025-05-28 00:00:00",
+        "nav": 184.5749,
+        "portfolio_value": 109064.55358330555,
+        "units": 590.8959104586027,
+        "capital": 0
+      }
+    ],
+    "error": null
+  },
+  {
+    "fund_name": "Parag Parekh Flexi Cap Fund Direct Growth",
+    "fund_code": "122639",
+    "fund_type": "Flexi Cap",
+    "mode": "conservative",
+    "threshold": 60,
+    "backtest_start_date": "10-11-2024",
+    "backtest_end_date": "10-11-2025",
+    "backtest_days": 365,
+    "initial_capital": 100000,
+    "num_transactions": 0,
+    "total_invested": 0,
+    "units_accumulated": 0.0,
+    "avg_buy_nav": 0,
+    "capital_remaining": 100000,
+    "strategy_final_value": 100000.0,
+    "strategy_return_pct": 0.0,
+    "baseline_buy_nav": 87.2638,
+    "baseline_units": 1145.9506,
+    "baseline_final_value": 107807.02,
+    "baseline_return_pct": 7.81,
+    "outperformance": -7.81,
+    "final_nav": 94.0765,
+    "transactions": [],
+    "portfolio_history": [],
+    "error": null
+  },
+  {
+    "fund_name": "Nippon India Large Cap Fund Direct Growth",
+    "fund_code": "118632",
+    "fund_type": "Large Cap",
+    "mode": "conservative",
+    "threshold": 60,
+    "backtest_start_date": "10-11-2024",
+    "backtest_end_date": "10-11-2025",
+    "backtest_days": 365,
+    "initial_capital": 100000,
+    "num_transactions": 8,
+    "total_invested": 80000,
+    "units_accumulated": 881.5804,
+    "avg_buy_nav": 90.75,
+    "capital_remaining": 20000,
+    "strategy_final_value": 111588.44,
+    "strategy_return_pct": 11.59,
+    "baseline_buy_nav": 96.5738,
+    "baseline_units": 1035.4775,
+    "baseline_final_value": 107577.0,
+    "baseline_return_pct": 7.58,
+    "outperformance": 4.01,
+    "final_nav": 103.8912,
+    "transactions": [
+      {
+        "date": "13-01-2025",
+        "nav": 91.922,
+        "score": 70.89,
+        "dip_percentage": 10.5,
+        "amount_invested": 10000,
+        "units_bought": 108.7879,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 10,
+          "mean_reversion": 11.89,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      },
+      {
+        "date": "22-01-2025",
+        "nav": 91.9229,
+        "score": 70.44,
+        "dip_percentage": 10.5,
+        "amount_invested": 10000,
+        "units_bought": 108.7868,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 10,
+          "mean_reversion": 11.44,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      },
+      {
+        "date": "31-01-2025",
+        "nav": 92.8772,
+        "score": 68.7,
+        "dip_percentage": 9.57,
+        "amount_invested": 10000,
+        "units_bought": 107.6691,
+        "breakdown": {
+          "dip_depth": 20,
+          "historical_context": 13,
+          "mean_reversion": 8.7,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      },
+      {
+        "date": "11-02-2025",
+        "nav": 90.5443,
+        "score": 72,
+        "dip_percentage": 11.84,
+        "amount_invested": 10000,
+        "units_bought": 110.4432,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      },
+      {
+        "date": "20-02-2025",
+        "nav": 90.3489,
+        "score": 74.77,
+        "dip_percentage": 12.03,
+        "amount_invested": 10000,
+        "units_bought": 110.682,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 10,
+          "mean_reversion": 12.77,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      },
+      {
+        "date": "04-03-2025",
+        "nav": 87.1643,
+        "score": 80,
+        "dip_percentage": 15.13,
+        "amount_invested": 10000,
+        "units_bought": 114.7259,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      },
+      {
+        "date": "13-03-2025",
+        "nav": 88.0656,
+        "score": 75,
+        "dip_percentage": 14.25,
+        "amount_invested": 10000,
+        "units_bought": 113.5517,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      },
+      {
+        "date": "25-03-2025",
+        "nav": 93.5158,
+        "score": 62.48,
+        "dip_percentage": 8.95,
+        "amount_invested": 10000,
+        "units_bought": 106.9338,
+        "breakdown": {
+          "dip_depth": 20,
+          "historical_context": 13,
+          "mean_reversion": 2.48,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 6
+        }
+      }
+    ],
+    "portfolio_history": [
+      {
+        "date": "2025-01-13 00:00:00",
+        "nav": 91.922,
+        "portfolio_value": 100000.0,
+        "units": 108.78788538108397,
+        "capital": 90000
+      },
+      {
+        "date": "2025-01-22 00:00:00",
+        "nav": 91.9229,
+        "portfolio_value": 100000.09790909685,
+        "units": 217.57470564023595,
+        "capital": 80000
+      },
+      {
+        "date": "2025-01-31 00:00:00",
+        "nav": 92.8772,
+        "portfolio_value": 100207.72945068932,
+        "units": 325.2437568174894,
+        "capital": 70000
+      },
+      {
+        "date": "2025-02-11 00:00:00",
+        "nav": 90.5443,
+        "portfolio_value": 99448.9682904098,
+        "units": 435.68693214713466,
+        "capital": 60000
+      },
+      {
+        "date": "2025-02-20 00:00:00",
+        "nav": 90.3489,
+        "portfolio_value": 99363.83506386826,
+        "units": 546.3689659073686,
+        "capital": 50000
+      },
+      {
+        "date": "2025-03-04 00:00:00",
+        "nav": 87.1643,
+        "portfolio_value": 97623.86845503966,
+        "units": 661.0948341814212,
+        "capital": 40000
+      },
+      {
+        "date": "2025-03-13 00:00:00",
+        "nav": 88.0656,
+        "portfolio_value": 98219.71322908737,
+        "units": 774.6465501749533,
+        "capital": 30000
+      },
+      {
+        "date": "2025-03-25 00:00:00",
+        "nav": 93.5158,
+        "portfolio_value": 102441.6918568509,
+        "units": 881.5803517357591,
+        "capital": 20000
+      }
+    ],
+    "error": null
+  },
+  {
+    "fund_name": "Quant Flexi Cap Fund Direct Growth",
+    "fund_code": "120843",
+    "fund_type": "Flexi Cap",
+    "mode": "conservative",
+    "threshold": 60,
+    "backtest_start_date": "10-11-2024",
+    "backtest_end_date": "10-11-2025",
+    "backtest_days": 365,
+    "initial_capital": 100000,
+    "num_transactions": 10,
+    "total_invested": 100000,
+    "units_accumulated": 953.5526,
+    "avg_buy_nav": 104.87,
+    "capital_remaining": 0,
+    "strategy_final_value": 104455.87,
+    "strategy_return_pct": 4.46,
+    "baseline_buy_nav": 109.5251,
+    "baseline_units": 913.0327,
+    "baseline_final_value": 100017.17,
+    "baseline_return_pct": 0.02,
+    "outperformance": 4.44,
+    "final_nav": 109.5439,
+    "transactions": [
+      {
+        "date": "11-11-2024",
+        "nav": 109.5251,
+        "score": 76.34,
+        "dip_percentage": 11.13,
+        "amount_invested": 10000,
+        "units_bought": 91.3033,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 13,
+          "mean_reversion": 12.34,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "22-11-2024",
+        "nav": 104.953,
+        "score": 79,
+        "dip_percentage": 14.84,
+        "amount_invested": 10000,
+        "units_bought": 95.2807,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 12,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "03-12-2024",
+        "nav": 109.7246,
+        "score": 75.49,
+        "dip_percentage": 10.97,
+        "amount_invested": 10000,
+        "units_bought": 91.1373,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 13,
+          "mean_reversion": 11.49,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "12-12-2024",
+        "nav": 109.3897,
+        "score": 75.72,
+        "dip_percentage": 11.24,
+        "amount_invested": 10000,
+        "units_bought": 91.4163,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 13,
+          "mean_reversion": 11.72,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "23-12-2024",
+        "nav": 105.3591,
+        "score": 79,
+        "dip_percentage": 14.51,
+        "amount_invested": 10000,
+        "units_bought": 94.9135,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 12,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "02-01-2025",
+        "nav": 107.9149,
+        "score": 79.44,
+        "dip_percentage": 12.43,
+        "amount_invested": 10000,
+        "units_bought": 92.6656,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 13,
+          "mean_reversion": 12.44,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "13-01-2025",
+        "nav": 99.8801,
+        "score": 92,
+        "dip_percentage": 18.95,
+        "amount_invested": 10000,
+        "units_bought": 100.12,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "22-01-2025",
+        "nav": 102.7957,
+        "score": 84,
+        "dip_percentage": 16.59,
+        "amount_invested": 10000,
+        "units_bought": 97.2803,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 12,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "31-01-2025",
+        "nav": 102.4692,
+        "score": 84,
+        "dip_percentage": 16.85,
+        "amount_invested": 10000,
+        "units_bought": 97.5903,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 12,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "11-02-2025",
+        "nav": 98.1882,
+        "score": 92,
+        "dip_percentage": 20.33,
+        "amount_invested": 10000,
+        "units_bought": 101.8452,
+        "breakdown": {
+          "dip_depth": 40,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      }
+    ],
+    "portfolio_history": [
+      {
+        "date": "2024-11-11 00:00:00",
+        "nav": 109.5251,
+        "portfolio_value": 100000.0,
+        "units": 91.30327203535994,
+        "capital": 90000
+      },
+      {
+        "date": "2024-11-22 00:00:00",
+        "nav": 104.953,
+        "portfolio_value": 99582.55230992714,
+        "units": 186.58401674966063,
+        "capital": 80000
+      },
+      {
+        "date": "2024-12-03 00:00:00",
+        "nav": 109.7246,
+        "portfolio_value": 100472.85660424981,
+        "units": 277.7212822306922,
+        "capital": 70000
+      },
+      {
+        "date": "2024-12-12 00:00:00",
+        "nav": 109.3897,
+        "portfolio_value": 100379.84774683075,
+        "units": 369.1375673105489,
+        "capital": 60000
+      },
+      {
+        "date": "2024-12-23 00:00:00",
+        "nav": 105.3591,
+        "portfolio_value": 98892.00186802886,
+        "units": 464.05105840908715,
+        "capital": 50000
+      },
+      {
+        "date": "2025-01-02 00:00:00",
+        "nav": 107.9149,
+        "portfolio_value": 100078.0235631108,
+        "units": 556.7166680700329,
+        "capital": 40000
+      },
+      {
+        "date": "2025-01-13 00:00:00",
+        "nav": 99.8801,
+        "portfolio_value": 95604.91647850169,
+        "units": 656.8367120027082,
+        "capital": 30000
+      },
+      {
+        "date": "2025-01-22 00:00:00",
+        "nav": 102.7957,
+        "portfolio_value": 97519.98959601678,
+        "units": 754.1170457131649,
+        "capital": 20000
+      },
+      {
+        "date": "2025-01-31 00:00:00",
+        "nav": 102.4692,
+        "portfolio_value": 97273.77038059144,
+        "units": 851.707346018037,
+        "capital": 10000
+      },
+      {
+        "date": "2025-02-11 00:00:00",
+        "nav": 98.1882,
+        "portfolio_value": 93627.61123228821,
+        "units": 953.5525779298146,
+        "capital": 0
+      },
+      {
+        "date": "2025-02-20 00:00:00",
+        "nav": 97.2823,
+        "portfolio_value": 92763.7879519416,
+        "units": 953.5525779298146,
+        "capital": 0
+      },
+      {
+        "date": "2025-03-04 00:00:00",
+        "nav": 92.9127,
+        "portfolio_value": 88597.14460741948,
+        "units": 953.5525779298146,
+        "capital": 0
+      },
+      {
+        "date": "2025-03-13 00:00:00",
+        "nav": 95.7264,
+        "portfolio_value": 91280.1554959406,
+        "units": 953.5525779298146,
+        "capital": 0
+      },
+      {
+        "date": "2025-03-25 00:00:00",
+        "nav": 100.7255,
+        "portfolio_value": 96047.06018826953,
+        "units": 953.5525779298146,
+        "capital": 0
+      },
+      {
+        "date": "2025-04-03 00:00:00",
+        "nav": 101.5229,
+        "portfolio_value": 96807.42301391078,
+        "units": 953.5525779298146,
+        "capital": 0
+      },
+      {
+        "date": "2025-04-16 00:00:00",
+        "nav": 102.4248,
+        "portfolio_value": 97667.43208394568,
+        "units": 953.5525779298146,
+        "capital": 0
+      }
+    ],
+    "error": null
+  },
+  {
+    "fund_name": "Hdfc Mid-Cap Opportunities Direct Plan Growth",
+    "fund_code": "118989",
+    "fund_type": "Mid Cap",
+    "mode": "conservative",
+    "threshold": 60,
+    "backtest_start_date": "10-11-2024",
+    "backtest_end_date": "10-11-2025",
+    "backtest_days": 365,
+    "initial_capital": 100000,
+    "num_transactions": 10,
+    "total_invested": 100000,
+    "units_accumulated": 530.0799,
+    "avg_buy_nav": 188.65,
+    "capital_remaining": 0,
+    "strategy_final_value": 117838.35,
+    "strategy_return_pct": 17.84,
+    "baseline_buy_nav": 203.85,
+    "baseline_units": 490.5568,
+    "baseline_final_value": 109052.24,
+    "baseline_return_pct": 9.05,
+    "outperformance": 8.79,
+    "final_nav": 222.303,
+    "transactions": [
+      {
+        "date": "13-01-2025",
+        "nav": 193.758,
+        "score": 71.46,
+        "dip_percentage": 9.51,
+        "amount_invested": 10000,
+        "units_bought": 51.6108,
+        "breakdown": {
+          "dip_depth": 20,
+          "historical_context": 10,
+          "mean_reversion": 12.46,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "22-01-2025",
+        "nav": 194.886,
+        "score": 70.11,
+        "dip_percentage": 8.99,
+        "amount_invested": 10000,
+        "units_bought": 51.312,
+        "breakdown": {
+          "dip_depth": 20,
+          "historical_context": 10,
+          "mean_reversion": 11.11,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "31-01-2025",
+        "nav": 195.306,
+        "score": 72.0,
+        "dip_percentage": 8.79,
+        "amount_invested": 10000,
+        "units_bought": 51.2017,
+        "breakdown": {
+          "dip_depth": 20,
+          "historical_context": 13,
+          "mean_reversion": 10.0,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "11-02-2025",
+        "nav": 188.393,
+        "score": 77,
+        "dip_percentage": 12.02,
+        "amount_invested": 10000,
+        "units_bought": 53.0805,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "20-02-2025",
+        "nav": 187.775,
+        "score": 79,
+        "dip_percentage": 12.31,
+        "amount_invested": 10000,
+        "units_bought": 53.2552,
+        "breakdown": {
+          "dip_depth": 25,
+          "historical_context": 12,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "04-03-2025",
+        "nav": 178.242,
+        "score": 82,
+        "dip_percentage": 16.76,
+        "amount_invested": 10000,
+        "units_bought": 56.1035,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "13-03-2025",
+        "nav": 178.72,
+        "score": 82,
+        "dip_percentage": 16.54,
+        "amount_invested": 10000,
+        "units_bought": 55.9534,
+        "breakdown": {
+          "dip_depth": 30,
+          "historical_context": 10,
+          "mean_reversion": 13,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "25-03-2025",
+        "nav": 191.35,
+        "score": 72.35,
+        "dip_percentage": 10.64,
+        "amount_invested": 10000,
+        "units_bought": 52.2603,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 13,
+          "mean_reversion": 8.35,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "03-04-2025",
+        "nav": 189.681,
+        "score": 72.93,
+        "dip_percentage": 11.42,
+        "amount_invested": 10000,
+        "units_bought": 52.7201,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 13,
+          "mean_reversion": 8.93,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      },
+      {
+        "date": "16-04-2025",
+        "nav": 190.178,
+        "score": 70.84,
+        "dip_percentage": 11.18,
+        "amount_invested": 10000,
+        "units_bought": 52.5823,
+        "breakdown": {
+          "dip_depth": 22,
+          "historical_context": 13,
+          "mean_reversion": 6.84,
+          "volatility": 11,
+          "recovery_speed": 10,
+          "fund_category": 8
+        }
+      }
+    ],
+    "portfolio_history": [
+      {
+        "date": "2025-01-13 00:00:00",
+        "nav": 193.758,
+        "portfolio_value": 100000.0,
+        "units": 51.61077220037366,
+        "capital": 90000
+      },
+      {
+        "date": "2025-01-22 00:00:00",
+        "nav": 194.886,
+        "portfolio_value": 100058.21695104202,
+        "units": 102.92282129574224,
+        "capital": 80000
+      },
+      {
+        "date": "2025-01-31 00:00:00",
+        "nav": 195.306,
+        "portfolio_value": 100101.44453598623,
+        "units": 154.1245252884511,
+        "capital": 70000
+      },
+      {
+        "date": "2025-02-11 00:00:00",
+        "nav": 188.393,
+        "portfolio_value": 99035.98169266718,
+        "units": 207.20505375819255,
+        "capital": 60000
+      },
+      {
+        "date": "2025-02-20 00:00:00",
+        "nav": 187.775,
+        "portfolio_value": 98907.92896944462,
+        "units": 260.46027942721133,
+        "capital": 50000
+      },
+      {
+        "date": "2025-03-04 00:00:00",
+        "nav": 178.242,
+        "portfolio_value": 96424.961125665,
+        "units": 316.5637791635249,
+        "capital": 40000
+      },
+      {
+        "date": "2025-03-13 00:00:00",
+        "nav": 178.72,
+        "portfolio_value": 96576.27861210516,
+        "units": 372.5172258958436,
+        "capital": 30000
+      },
+      {
+        "date": "2025-03-25 00:00:00",
+        "nav": 191.35,
+        "portfolio_value": 101281.17117516967,
+        "units": 424.7774819710984,
+        "capital": 20000
+      },
+      {
+        "date": "2025-04-03 00:00:00",
+        "nav": 189.681,
+        "portfolio_value": 100572.21755775991,
+        "units": 477.4975751802232,
+        "capital": 10000
+      },
+      {
+        "date": "2025-04-16 00:00:00",
+        "nav": 190.178,
+        "portfolio_value": 100809.53385262447,
+        "units": 530.0798927984545,
+        "capital": 0
+      },
+      {
+        "date": "2025-04-28 00:00:00",
+        "nav": 195.999,
+        "portfolio_value": 103895.12890860428,
+        "units": 530.0798927984545,
+        "capital": 0
+      },
+      {
+        "date": "2025-05-08 00:00:00",
+        "nav": 194.013,
+        "portfolio_value": 102842.39024150655,
+        "units": 530.0798927984545,
+        "capital": 0
+      }
+    ],
+    "error": null
+  }
+]
