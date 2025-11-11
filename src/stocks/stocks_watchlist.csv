@@ -1,0 +1,12 @@
+symbol,name,sector,market_cap,exchange,min_score
+RELIANCE,Reliance Industries,Energy,large,NSE,65
+HDFCBANK,HDFC Bank,Banking,large,NSE,65
+INFY,Infosys,IT,large,NSE,60
+TCS,TCS,IT,large,NSE,60
+ASIANPAINT,Asian Paints,Consumer,large,NSE,65
+ITC,ITC,FMCG,large,NSE,60
+BAJFINANCE,Bajaj Finance,NBFC,large,NSE,65
+TITAN,Titan Company,Consumer,large,NSE,65
+BHARTIARTL,Bharti Airtel,Telecom,large,NSE,60
+WIPRO,Wipro,IT,large,NSE,60
+
