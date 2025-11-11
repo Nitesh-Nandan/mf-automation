@@ -14,6 +14,7 @@ from stock_data_fetcher import (
     calculate_rsi, calculate_support_level, calculate_volume_ratio
 )
 from fundamental_analyzer import calculate_fundamental_score, is_quality_stock
+from config import DIP_THRESHOLDS, get_market_cap_category
 
 
 def load_stocks_watchlist():
@@ -335,15 +336,8 @@ def analyze_stock_dip(
         # Normalize total score to 100 (from 125: 15+15+15+15+15+5+20+10+10+5)
         final_score = (total_score / 125) * 100
         
-        # === GENERATE RECOMMENDATION ===
-        thresholds = {
-            'ultra_conservative': 75,
-            'conservative': 65,
-            'moderate': 55,
-            'aggressive': 45
-        }
-        
-        threshold = thresholds.get(mode, 65)
+        # === GENERATE RECOMMENDATION === (from config)
+        threshold = DIP_THRESHOLDS.get(mode, DIP_THRESHOLDS['conservative'])
         
         if final_score >= 80:
             recommendation = 'STRONG BUY'
@@ -422,6 +416,15 @@ def analyze_all_stocks(mode: str = 'conservative') -> List[Dict]:
             print(f"  ✅ Score: {result['total_score']:.1f} | {result['recommendation']}")
         else:
             print(f"  ⚠️  {result['error']}")
+            # Show quality check failures in detail
+            if 'quality_check' in result:
+                qc = result['quality_check']
+                print(f"     Fundamental Score: {qc['fundamental_score']}/20")
+                failed_checks = [c for c in qc['checks'] if not c['pass']]
+                if failed_checks:
+                    print(f"     Failed checks:")
+                    for check in failed_checks:
+                        print(f"       ❌ {check['name']}: {check['value']} (need {check['criteria']})")
     
     results.sort(key=lambda x: x['total_score'], reverse=True)
     

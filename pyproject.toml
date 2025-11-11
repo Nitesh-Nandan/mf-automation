@@ -8,4 +8,5 @@ dependencies = [
     "dotenv>=0.9.9",
     "requests>=2.31.0",
     "yfinance>=0.2.32",
+    "beautifulsoup4>=4.12.0",
 ]

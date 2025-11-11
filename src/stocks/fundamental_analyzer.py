@@ -5,6 +5,13 @@ Evaluates company fundamentals for quality assessment
 
 from typing import Dict
 
+from config import (
+    get_pe_score, 
+    QUALITY_THRESHOLDS,
+    adjust_threshold_for_estimates,
+    DATA_QUALITY
+)
+
 
 def calculate_fundamental_score(fundamentals: Dict) -> Dict:
     """
@@ -27,24 +34,9 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
     score = 0
     breakdown = {}
     
-    # 1. P/E Ratio (0-4 points)
+    # 1. P/E Ratio (0-4 points) - From config
     pe_ratio = fundamentals.get('pe_ratio', 0)
-    if pe_ratio > 0:
-        if pe_ratio < 15:
-            pe_score = 4  # Undervalued
-            pe_assessment = "Undervalued"
-        elif pe_ratio < 25:
-            pe_score = 3  # Fair value
-            pe_assessment = "Fair"
-        elif pe_ratio < 35:
-            pe_score = 2  # Slightly expensive
-            pe_assessment = "Slightly Expensive"
-        else:
-            pe_score = 1  # Expensive
-            pe_assessment = "Expensive"
-    else:
-        pe_score = 2  # Neutral if no data
-        pe_assessment = "No Data"
+    pe_score, pe_assessment = get_pe_score(pe_ratio)
     
     score += pe_score
     breakdown['pe_ratio'] = {
@@ -182,13 +174,13 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
     }
 
 
-def is_quality_stock(fundamentals: Dict, min_score: int = 10) -> Dict:
+def is_quality_stock(fundamentals: Dict, min_score: int = None) -> Dict:
     """
     Check if stock passes quality criteria (Updated for 20-point scale)
     
     Args:
         fundamentals: Dictionary with fundamental metrics
-        min_score: Minimum fundamental score required (default 10/20 = 50%)
+        min_score: Minimum fundamental score required (default from config)
     
     Returns:
         Dictionary with pass/fail and reasons
@@ -196,57 +188,69 @@ def is_quality_stock(fundamentals: Dict, min_score: int = 10) -> Dict:
     result = calculate_fundamental_score(fundamentals)
     score = result['total_score']
     
+    # Use config default if not provided
+    if min_score is None:
+        min_score = QUALITY_THRESHOLDS['min_fundamental_score']
+    
+    # Check if data is estimated
+    data_quality = fundamentals.get('_data_quality', 'actual')
+    estimated_fields = fundamentals.get('_estimated_fields', [])
+    
+    # Adjust min_score if many fields are estimated (from config)
+    if DATA_QUALITY['adjust_score_for_estimates']:
+        min_score = adjust_threshold_for_estimates(min_score, len(estimated_fields))
+    
     # Strict quality filters
     checks = []
     
-    # Check 1: Debt Level
+    # Check 1: Debt Level (from config)
     debt_equity = fundamentals.get('debt_to_equity', 1000)
-    debt_ok = debt_equity < 100  # Debt-to-Equity < 1.0
+    debt_ok = debt_equity < QUALITY_THRESHOLDS['max_debt_equity']
     checks.append({
         'name': 'Debt Level',
         'pass': debt_ok,
         'value': debt_equity,
-        'criteria': '< 100'
+        'criteria': f"< {QUALITY_THRESHOLDS['max_debt_equity']}"
     })
     
-    # Check 2: ROE
+    # Check 2: ROE (from config)
     roe = fundamentals.get('roe', 0)
-    roe_ok = roe > 12
+    roe_ok = roe > QUALITY_THRESHOLDS['min_roe']
     checks.append({
         'name': 'ROE',
         'pass': roe_ok,
         'value': f"{roe:.1f}%",
-        'criteria': '> 12%'
+        'criteria': f"> {QUALITY_THRESHOLDS['min_roe']}%"
     })
     
-    # Check 3: P/E Ratio (not too expensive)
+    # Check 3: P/E Ratio (from config)
     pe_ratio = fundamentals.get('pe_ratio', 0)
-    pe_ok = 0 < pe_ratio < 50 if pe_ratio > 0 else False
+    pe_ok = 0 < pe_ratio < QUALITY_THRESHOLDS['max_pe_ratio'] if pe_ratio > 0 else False
     checks.append({
         'name': 'P/E Ratio',
         'pass': pe_ok,
         'value': pe_ratio,
-        'criteria': '< 50'
+        'criteria': f"< {QUALITY_THRESHOLDS['max_pe_ratio']}"
     })
     
-    # Check 4: Profit Growth ⭐ NEW
+    # Check 4: Profit Growth (from config)
     profit_growth = fundamentals.get('profit_growth', -100)
-    profit_growth_ok = profit_growth > 0  # At least positive profit growth
+    profit_growth_ok = profit_growth > QUALITY_THRESHOLDS['min_profit_growth']
     checks.append({
         'name': 'Profit Growth',
         'pass': profit_growth_ok,
         'value': f"{profit_growth:.1f}%",
-        'criteria': '> 0%'
+        'criteria': f"> {QUALITY_THRESHOLDS['min_profit_growth']}%"
     })
     
-    # Check 5: Profit Margin ⭐ NEW
+    # Check 5: Profit Margin (from config)
     profit_margin = fundamentals.get('profit_margin', 0)
-    profit_margin_ok = profit_margin > 5  # At least 5% profit margin
+    profit_margin_ok = profit_margin > QUALITY_THRESHOLDS['min_profit_margin']
     checks.append({
         'name': 'Profit Margin',
         'pass': profit_margin_ok,
         'value': f"{profit_margin:.1f}%",
-        'criteria': '> 5%'
+        'criteria': f"> {QUALITY_THRESHOLDS['min_profit_margin']}%"
     })
     
     # Check 6: Overall fundamental score
@@ -264,7 +268,9 @@ def is_quality_stock(fundamentals: Dict, min_score: int = 10) -> Dict:
         'is_quality': all_pass,
         'fundamental_score': score,
         'checks': checks,
-        'summary': 'PASS' if all_pass else 'FAIL'
+        'summary': 'PASS' if all_pass else 'FAIL',
+        'data_quality': data_quality,
+        'estimated_fields': estimated_fields
     }
 
 
@@ -309,35 +315,100 @@ def print_fundamental_analysis(fundamentals: Dict, stock_name: str):
 
 if __name__ == "__main__":
     # Test with sample data
-    print("🧪 Testing Fundamental Analyzer\n")
+    print("🧪 Testing Enhanced Fundamental Analyzer (20-point system)\n")
+    print("=" * 70)
     
-    # Test Case 1: Good Stock
-    good_stock = {
+    # Test Case 1: Excellent Blue-Chip Stock
+    excellent_stock = {
         'pe_ratio': 22,
         'debt_to_equity': 45,
         'roe': 18.5,
-        'revenue_growth': 12.3
+        'revenue_growth': 15.3,
+        'profit_growth': 20.5,      # ⭐ Strong profit growth
+        'profit_margin': 16.2        # ⭐ Excellent margins
     }
     
-    print("Test Case 1: Good Quality Stock")
-    result1 = calculate_fundamental_score(good_stock)
-    quality1 = is_quality_stock(good_stock)
+    print("\n📊 Test Case 1: Excellent Blue-Chip Stock")
+    print("-" * 70)
+    result1 = calculate_fundamental_score(excellent_stock)
+    quality1 = is_quality_stock(excellent_stock)
     
-    print(f"Score: {result1['total_score']}/15")
+    print(f"Score: {result1['total_score']}/20 ({result1['total_score']/20*100:.1f}%)")
     print(f"Quality: {'✅ PASS' if quality1['is_quality'] else '❌ FAIL'}")
+    print("\nBreakdown:")
+    for factor, data in result1['breakdown'].items():
+        print(f"  • {factor.replace('_', ' ').title()}: {data['score']}/{data['max']} pts - {data['assessment']} (Value: {data['value']})")
     
-    # Test Case 2: Poor Stock
-    poor_stock = {
-        'pe_ratio': 55,
-        'debt_to_equity': 180,
-        'roe': 8.2,
-        'revenue_growth': -2.5
+    # Test Case 2: High Revenue, Low Profit (Growth Stock Warning)
+    growth_warning = {
+        'pe_ratio': 45,
+        'debt_to_equity': 85,
+        'roe': 14.2,
+        'revenue_growth': 35.0,      # High revenue growth
+        'profit_growth': -3.5,       # ⚠️ Negative profit growth
+        'profit_margin': 4.2         # ⚠️ Low margins
     }
     
-    print("\nTest Case 2: Poor Quality Stock")
-    result2 = calculate_fundamental_score(poor_stock)
-    quality2 = is_quality_stock(poor_stock)
+    print("\n📊 Test Case 2: High Revenue Growth, BUT Low Profitability")
+    print("-" * 70)
+    result2 = calculate_fundamental_score(growth_warning)
+    quality2 = is_quality_stock(growth_warning)
     
-    print(f"Score: {result2['total_score']}/15")
+    print(f"Score: {result2['total_score']}/20 ({result2['total_score']/20*100:.1f}%)")
     print(f"Quality: {'✅ PASS' if quality2['is_quality'] else '❌ FAIL'}")
+    print("\nBreakdown:")
+    for factor, data in result2['breakdown'].items():
+        print(f"  • {factor.replace('_', ' ').title()}: {data['score']}/{data['max']} pts - {data['assessment']} (Value: {data['value']})")
+    
+    # Test Case 3: Poor Quality Stock
+    poor_stock = {
+        'pe_ratio': 65,
+        'debt_to_equity': 220,
+        'roe': 7.8,
+        'revenue_growth': -2.5,
+        'profit_growth': -8.3,       # Declining profits
+        'profit_margin': 2.1         # Very low margins
+    }
+    
+    print("\n📊 Test Case 3: Poor Quality Stock")
+    print("-" * 70)
+    result3 = calculate_fundamental_score(poor_stock)
+    quality3 = is_quality_stock(poor_stock)
+    
+    print(f"Score: {result3['total_score']}/20 ({result3['total_score']/20*100:.1f}%)")
+    print(f"Quality: {'✅ PASS' if quality3['is_quality'] else '❌ FAIL'}")
+    print("\nBreakdown:")
+    for factor, data in result3['breakdown'].items():
+        print(f"  • {factor.replace('_', ' ').title()}: {data['score']}/{data['max']} pts - {data['assessment']} (Value: {data['value']})")
+    
+    # Test Case 4: Balanced Mid-Cap
+    balanced_stock = {
+        'pe_ratio': 28,
+        'debt_to_equity': 75,
+        'roe': 16.5,
+        'revenue_growth': 14.0,
+        'profit_growth': 18.2,       # Good profit growth
+        'profit_margin': 11.5        # Solid margins
+    }
+    
+    print("\n📊 Test Case 4: Balanced Mid-Cap Stock")
+    print("-" * 70)
+    result4 = calculate_fundamental_score(balanced_stock)
+    quality4 = is_quality_stock(balanced_stock)
+    
+    print(f"Score: {result4['total_score']}/20 ({result4['total_score']/20*100:.1f}%)")
+    print(f"Quality: {'✅ PASS' if quality4['is_quality'] else '❌ FAIL'}")
+    print("\nBreakdown:")
+    for factor, data in result4['breakdown'].items():
+        print(f"  • {factor.replace('_', ' ').title()}: {data['score']}/{data['max']} pts - {data['assessment']} (Value: {data['value']})")
+    
+    # Summary
+    print("\n" + "=" * 70)
+    print("📈 SUMMARY")
+    print("=" * 70)
+    print(f"Case 1 (Excellent): {result1['total_score']}/20 - {'✅ QUALITY' if quality1['is_quality'] else '❌ NOT QUALITY'}")
+    print(f"Case 2 (High Rev, Low Profit): {result2['total_score']}/20 - {'✅ QUALITY' if quality2['is_quality'] else '❌ NOT QUALITY'}")
+    print(f"Case 3 (Poor): {result3['total_score']}/20 - {'✅ QUALITY' if quality3['is_quality'] else '❌ NOT QUALITY'}")
+    print(f"Case 4 (Balanced): {result4['total_score']}/20 - {'✅ QUALITY' if quality4['is_quality'] else '❌ NOT QUALITY'}")
+    print("\n💡 Key Insight: Case 2 shows why profit growth matters more than revenue growth!")
 
