@@ -6,9 +6,9 @@ Clean, maintainable 6-factor algorithm for identifying optimal dip-buying opport
 from datetime import datetime
 from typing import Dict, List
 
-from mf_funds import get_mf_funds
-from trends_analyser import analyze_fund_dip
-from historical_dip_analysis import analyze_max_historical_dip
+from fund_loader import get_mf_funds
+from trend_analyzer import analyze_fund_dip
+from history_analyzer import analyze_max_historical_dip
 from scoring import calculate_all_scores
 from data_fetcher import fetch_nav_data
 from config import (
@@ -61,31 +61,36 @@ def analyze_dip_opportunity(
         historical_days = TIME_WINDOWS['historical_analysis_days']
     
     try:
-        # Step 1: Get current dip analysis
+        # Step 1: Fetch NAV data ONCE (optimization - was 3 calls, now 1!)
+        nav_data = fetch_nav_data(code, historical_days)
+        
+        # Sort by date ASCENDING (oldest first) - sorted once, used everywhere
+        nav_data.sort(key=lambda x: x['date'])
+        
+        # Step 2: Get current dip analysis (using pre-fetched data)
         current_analysis = analyze_fund_dip(
             fund_name=fund_name,
             code=code,
             dip_percentage=TIME_WINDOWS['min_dip_threshold'],
-            days=analysis_days
+            days=analysis_days,
+            nav_data=nav_data  # Pass pre-fetched data
         )
         
         if current_analysis.get('error'):
             return {'error': current_analysis['error']}
         
-        # Step 2: Get historical maximum dip
+        # Step 3: Get historical maximum dip (using pre-fetched data)
         historical_analysis = analyze_max_historical_dip(
             fund_name=fund_name,
             code=code,
-            days=historical_days
+            days=historical_days,
+            nav_data=nav_data  # Pass pre-fetched data
         )
         
         if historical_analysis.get('error'):
             return {'error': historical_analysis['error']}
         
-        # Step 3: Fetch full NAV data
-        nav_data = fetch_nav_data(code, historical_days)
-        
-        # Step 4: Calculate all 6 factor scores
+        # Step 4: Calculate all 6 factor scores (using same nav_data)
         score_breakdown, total_score = calculate_all_scores(
             current_analysis=current_analysis,
             historical_analysis=historical_analysis,
@@ -250,9 +255,10 @@ def print_detailed_analysis(result: Dict):
     
     print(f"\n🔍 Historical Context:")
     hist = result['historical_analysis']
+    max_dip = hist['max_dip_details']
     print(f"  Max Historical Dip: {hist['max_historical_dip']:.2f}%")
-    print(f"  Peak Date: {hist['peak_date']}")
-    print(f"  Bottom Date: {hist['bottom_date']}")
+    print(f"  Peak Date: {max_dip['peak_date']}")
+    print(f"  Bottom Date: {max_dip['bottom_date']}")
     
     print(f"\n⭐ Score Breakdown:")
     for factor_name, factor_data in result['score_breakdown'].items():

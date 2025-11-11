@@ -1,25 +1,33 @@
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict, List, Optional
 
-from mf_funds import get_mf_funds
+from fund_loader import get_mf_funds
 from data_fetcher import fetch_nav_data
 
 
 def analyze_max_historical_dip(
     fund_name: str,
     code: str,
-    days: int = 730  # 2 years by default
+    days: int = 730,  # 2 years by default
+    nav_data: Optional[List[Dict]] = None
 ) -> Dict:
     """
     Analyze the maximum NAV dip that has occurred historically for a fund.
+    
+    Args:
+        fund_name: Name of the fund
+        code: API code for the fund
+        days: Number of days to look back (default: 730 = 2 years)
+        nav_data: Optional pre-fetched NAV data (optimization to avoid duplicate API calls)
     
     Returns:
         Dictionary containing max dip information and when it occurred
     """
     
     try:
-        # Fetch NAV data using shared data fetcher
-        nav_data = fetch_nav_data(code, days=days)
+        # Use pre-fetched data if provided, otherwise fetch from API
+        if nav_data is None:
+            nav_data = fetch_nav_data(code, days=days)
         
         if len(nav_data) < 2:
             return {
@@ -28,8 +36,10 @@ def analyze_max_historical_dip(
                 'error': 'Not enough data'
             }
         
-        # Sort by date
-        nav_data.sort(key=lambda x: x['date'])
+        # Data comes pre-sorted ASCENDING (oldest first) from dip_analyzer
+        # For backward compatibility (standalone calls), ensure sorted
+        if nav_data is None:
+            nav_data.sort(key=lambda x: x['date'])
         
         # Calculate maximum dip by checking from each peak
         max_dip_percentage = 0

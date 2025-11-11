@@ -61,7 +61,8 @@ def calculate_recovery_speed(nav_data: List[Dict]) -> Dict:
         - recovery_count: Number of recoveries tracked
         - has_history: Whether recovery data exists
     """
-    nav_data_sorted = sorted(nav_data, key=lambda x: x['date'])
+    # Data comes pre-sorted ASCENDING (oldest first) from dip_analyzer
+    nav_data_sorted = nav_data
     
     min_dip_threshold = RECOVERY_SPEED['min_dip_threshold']
     

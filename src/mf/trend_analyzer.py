@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Dict
+from typing import Dict, List, Optional
 
 from data_fetcher import fetch_nav_data
 
@@ -8,7 +8,8 @@ def analyze_fund_dip(
     fund_name: str,
     code: str,
     dip_percentage: float = 10.0,
-    days: int = 120
+    days: int = 120,
+    nav_data: Optional[List[Dict]] = None
 ) -> Dict:
     """
     Analyze if a mutual fund's current NAV is in a dip compared to its peak.
@@ -17,7 +18,8 @@ def analyze_fund_dip(
         fund_name: Name of the mutual fund
         code: API code for the fund
         dip_percentage: Percentage dip to check for (default: 10%)
-        days: Number of days to look back for historical data (default: 90)
+        days: Number of days to look back for historical data (default: 120)
+        nav_data: Optional pre-fetched NAV data (optimization to avoid duplicate API calls)
     
     Returns:
         Dictionary containing:
@@ -35,8 +37,13 @@ def analyze_fund_dip(
     """
     
     try:
-        # Fetch NAV data using shared data fetcher
-        filtered_data = fetch_nav_data(code, days=days)
+        # Use pre-fetched data if provided, otherwise fetch from API
+        if nav_data is not None:
+            # Use last 'days' entries from pre-fetched data
+            filtered_data = nav_data[-days:] if len(nav_data) > days else nav_data
+        else:
+            # Fetch NAV data using shared data fetcher
+            filtered_data = fetch_nav_data(code, days=days)
         
         if not filtered_data:
             return {
@@ -45,12 +52,14 @@ def analyze_fund_dip(
                 'error': f'No data available for the last {days} days'
             }
         
-        # Sort by date (most recent first)
-        filtered_data.sort(key=lambda x: x['date'], reverse=True)
+        # Data comes pre-sorted ASCENDING (oldest first) from dip_analyzer
+        # For backward compatibility (standalone calls), ensure sorted
+        if nav_data is None:
+            filtered_data.sort(key=lambda x: x['date'])
         
-        # Current NAV (most recent)
-        current_nav = filtered_data[0]['nav']
-        current_date = filtered_data[0]['date']
+        # Current NAV (most recent = last entry in ascending order)
+        current_nav = filtered_data[-1]['nav']
+        current_date = filtered_data[-1]['date']
         
         # Find peak NAV and its date
         peak_entry = max(filtered_data, key=lambda x: x['nav'])
@@ -120,7 +129,7 @@ def print_analysis_result(result: Dict) -> None:
 
 if __name__ == "__main__":
     # Example usage
-    from mf_funds import get_mf_funds
+    from fund_loader import get_mf_funds
     
     print("Loading mutual funds...")
     funds = get_mf_funds()
