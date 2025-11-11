@@ -33,9 +33,10 @@ uv run python dip_analyzer.py
 
 ## 🎯 Modes
 
-- **Conservative** - Score ≥ 70 (very selective)
-- **Moderate** - Score ≥ 60 (balanced)
-- **Aggressive** - Score ≥ 50 (more opportunities)
+- **Ultra Conservative** - Score ≥ 70 (bear markets, crashes)
+- **Conservative** ⭐ - Score ≥ 60 (normal conditions)
+- **Moderate** - Score ≥ 50 (bull markets)
+- **Aggressive** - Score ≥ 40 (strong uptrends)
 
 ## 💡 Strategy
 
@@ -47,10 +48,9 @@ uv run python dip_analyzer.py
 
 ## 📖 Documentation
 
-See `docs/` folder for:
-- Algorithm documentation
-- Backtest results
-- Strategy guide
+Essential docs in `docs/` folder:
+- **`ALGORITHM_DOCUMENTATION.md`** - Complete algorithm explanation
+- **`SCORING_REFERENCE.md`** - Quick scoring reference guide
 
 ## 📝 Adding Funds
 

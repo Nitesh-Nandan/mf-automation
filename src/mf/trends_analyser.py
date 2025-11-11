@@ -1,6 +1,7 @@
-import requests
-from datetime import datetime, timedelta
-from typing import Dict, Optional
+from datetime import datetime
+from typing import Dict
+
+from data_fetcher import fetch_nav_data
 
 
 def analyze_fund_dip(
@@ -34,43 +35,8 @@ def analyze_fund_dip(
     """
     
     try:
-        # Calculate date range
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=days)
-        
-        # Format dates for API (ISO 8601 format: YYYY-MM-DD)
-        start_date_str = start_date.strftime('%Y-%m-%d')
-        end_date_str = end_date.strftime('%Y-%m-%d')
-        
-        # Fetch data from API with date range parameters
-        api_url = f"https://api.mfapi.in/mf/{code}"
-        params = {
-            'startDate': start_date_str,
-            'endDate': end_date_str
-        }
-        response = requests.get(api_url, params=params, timeout=10)
-        response.raise_for_status()
-        
-        data = response.json()
-        
-        # Check if data is valid
-        if 'data' not in data or not data['data']:
-            return {
-                'fund_name': fund_name,
-                'fund_code': code,
-                'error': 'No historical data available from API'
-            }
-        
-        historical_data = data['data']
-        
-        # Parse the data
-        filtered_data = []
-        for entry in historical_data:
-            entry_date = datetime.strptime(entry['date'], '%d-%m-%Y')
-            filtered_data.append({
-                'date': entry_date,
-                'nav': float(entry['nav'])
-            })
+        # Fetch NAV data using shared data fetcher
+        filtered_data = fetch_nav_data(code, days=days)
         
         if not filtered_data:
             return {
@@ -114,12 +80,6 @@ def analyze_fund_dip(
             'error': None
         }
     
-    except requests.RequestException as e:
-        return {
-            'fund_name': fund_name,
-            'fund_code': code,
-            'error': f'API request failed: {str(e)}'
-        }
     except Exception as e:
         return {
             'fund_name': fund_name,

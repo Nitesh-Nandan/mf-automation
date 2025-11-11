@@ -1,7 +1,8 @@
-import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Dict, List
+
 from mf_funds import get_mf_funds
+from data_fetcher import fetch_nav_data
 
 
 def analyze_max_historical_dip(
@@ -17,42 +18,8 @@ def analyze_max_historical_dip(
     """
     
     try:
-        # Calculate date range
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=days)
-        
-        # Format dates for API
-        start_date_str = start_date.strftime('%Y-%m-%d')
-        end_date_str = end_date.strftime('%Y-%m-%d')
-        
-        # Fetch data from API
-        api_url = f"https://api.mfapi.in/mf/{code}"
-        params = {
-            'startDate': start_date_str,
-            'endDate': end_date_str
-        }
-        response = requests.get(api_url, params=params, timeout=10)
-        response.raise_for_status()
-        
-        data = response.json()
-        
-        if 'data' not in data or not data['data']:
-            return {
-                'fund_name': fund_name,
-                'fund_code': code,
-                'error': 'No historical data available'
-            }
-        
-        historical_data = data['data']
-        
-        # Parse the data
-        nav_data = []
-        for entry in historical_data:
-            entry_date = datetime.strptime(entry['date'], '%d-%m-%Y')
-            nav_data.append({
-                'date': entry_date,
-                'nav': float(entry['nav'])
-            })
+        # Fetch NAV data using shared data fetcher
+        nav_data = fetch_nav_data(code, days=days)
         
         if len(nav_data) < 2:
             return {
