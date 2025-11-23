@@ -15,15 +15,16 @@ from config import (
 
 def calculate_fundamental_score(fundamentals: Dict) -> Dict:
     """
-    Calculate fundamental quality score (0-20 points) - ENHANCED
+    Calculate fundamental quality score (0-25 points) - ENHANCED v3.0
     
     Evaluates:
-    - P/E Ratio (valuation) - 4 pts
+    - Relative P/E Ratio (valuation) - 4 pts (or Absolute P/E fallback)
+    - PEG Ratio (growth valuation) - 3 pts ⭐ NEW
     - Debt-to-Equity (financial health) - 3 pts
     - ROE (profitability) - 3 pts
-    - Revenue Growth (top-line growth) - 3 pts
-    - Profit Growth (bottom-line growth) - 4 pts ⭐ NEW
-    - Profit Margin (profitability efficiency) - 3 pts ⭐ NEW
+    - Revenue Growth (top-line growth) - 5 pts
+    - Profit Growth (bottom-line growth) - 4 pts
+    - Profit Margin (profitability efficiency) - 3 pts
     
     Args:
         fundamentals: Dictionary with fundamental metrics
@@ -34,9 +35,32 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
     score = 0
     breakdown = {}
     
-    # 1. P/E Ratio (0-4 points) - From config
+    # 1. Relative P/E Ratio (0-4 points)
     pe_ratio = fundamentals.get('pe_ratio', 0)
-    pe_score, pe_assessment = get_pe_score(pe_ratio)
+    median_pe = fundamentals.get('median_pe', 0)
+    
+    if median_pe > 0:
+        # Relative Valuation Logic
+        ratio = pe_ratio / median_pe
+        if ratio < 0.8:
+            pe_score = 4
+            pe_assessment = "Historically Cheap"
+        elif ratio < 1.0:
+            pe_score = 3
+            pe_assessment = "Below Median"
+        elif ratio < 1.2:
+            pe_score = 2
+            pe_assessment = "Fair Value"
+        elif ratio < 1.5:
+            pe_score = 1
+            pe_assessment = "Expensive"
+        else:
+            pe_score = 0
+            pe_assessment = "Very Expensive"
+    else:
+        # Fallback to Absolute Valuation Logic (from config)
+        pe_score, pe_assessment = get_pe_score(pe_ratio)
+        pe_assessment += " (Absolute)"
     
     score += pe_score
     breakdown['pe_ratio'] = {
@@ -45,23 +69,54 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
         'assessment': pe_assessment,
         'max': 4
     }
+
+    # 2. PEG Ratio (0-3 points) ⭐ NEW
+    peg_ratio = fundamentals.get('peg_ratio', 0)
+    # If PEG is missing but we have P/E and Profit Growth, calculate it
+    if peg_ratio == 0 and pe_ratio > 0 and fundamentals.get('profit_growth', 0) > 0:
+        peg_ratio = pe_ratio / fundamentals.get('profit_growth')
+
+    if peg_ratio > 0:
+        if peg_ratio < 1.0:
+            peg_score = 3
+            peg_assessment = "Undervalued Growth"
+        elif peg_ratio < 1.5:
+            peg_score = 2
+            peg_assessment = "Fair Price"
+        elif peg_ratio < 2.0:
+            peg_score = 1
+            peg_assessment = "Expensive"
+        else:
+            peg_score = 0
+            peg_assessment = "Overvalued"
+    else:
+        peg_score = 0
+        peg_assessment = "N/A"
+
+    score += peg_score
+    breakdown['peg_ratio'] = {
+        'score': peg_score,
+        'value': peg_ratio,
+        'assessment': peg_assessment,
+        'max': 3
+    }
     
-    # 2. Debt-to-Equity (0-3 points)
+    # 3. Debt-to-Equity (0-3 points)
     debt_equity = fundamentals.get('debt_to_equity', 100)
     if debt_equity == 0:
-        de_score = 3  # Zero debt is best
+        de_score = 3
         de_assessment = "Debt-free"
     elif debt_equity < 50:
-        de_score = 3  # Very low debt
+        de_score = 3
         de_assessment = "Very Low"
     elif debt_equity < 100:
-        de_score = 2  # Moderate debt
+        de_score = 2
         de_assessment = "Moderate"
     elif debt_equity < 200:
-        de_score = 1  # High debt
+        de_score = 1
         de_assessment = "High"
     else:
-        de_score = 0  # Very high debt
+        de_score = 0
         de_assessment = "Very High"
     
     score += de_score
@@ -72,19 +127,19 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
         'max': 3
     }
     
-    # 3. ROE - Return on Equity (0-3 points)
+    # 4. ROE - Return on Equity (0-3 points)
     roe = fundamentals.get('roe', 0)
     if roe > 20:
-        roe_score = 3  # Excellent
+        roe_score = 3
         roe_assessment = "Excellent"
     elif roe > 15:
-        roe_score = 2  # Very Good
+        roe_score = 2
         roe_assessment = "Very Good"
     elif roe > 10:
-        roe_score = 1  # Good
+        roe_score = 1
         roe_assessment = "Good"
     else:
-        roe_score = 0  # Poor/Fair
+        roe_score = 0
         roe_assessment = "Below Average"
     
     score += roe_score
@@ -95,19 +150,19 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
         'max': 3
     }
     
-    # 4. Revenue Growth (0-3 points)
+    # 5. Revenue Growth (0-5 points)
     revenue_growth = fundamentals.get('revenue_growth', 0)
-    if revenue_growth > 20:
-        growth_score = 3  # Excellent growth
+    if revenue_growth > 15:
+        growth_score = 5
         growth_assessment = "Excellent"
-    elif revenue_growth > 12:
-        growth_score = 2  # Good growth
+    elif revenue_growth > 10:
+        growth_score = 3
         growth_assessment = "Good"
     elif revenue_growth > 5:
-        growth_score = 1  # Moderate growth
+        growth_score = 1
         growth_assessment = "Moderate"
     else:
-        growth_score = 0  # Slow/declining
+        growth_score = 0
         growth_assessment = "Slow/Declining"
     
     score += growth_score
@@ -115,25 +170,25 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
         'score': growth_score,
         'value': revenue_growth,
         'assessment': growth_assessment,
-        'max': 3
+        'max': 5
     }
     
-    # 5. Profit Growth (0-4 points) ⭐ NEW & CRITICAL
+    # 6. Profit Growth (0-4 points)
     profit_growth = fundamentals.get('profit_growth', 0)
     if profit_growth > 25:
-        profit_growth_score = 4  # Excellent profit growth
+        profit_growth_score = 4
         profit_growth_assessment = "Excellent"
     elif profit_growth > 15:
-        profit_growth_score = 3  # Very good profit growth
+        profit_growth_score = 3
         profit_growth_assessment = "Very Good"
     elif profit_growth > 8:
-        profit_growth_score = 2  # Good profit growth
+        profit_growth_score = 2
         profit_growth_assessment = "Good"
     elif profit_growth > 0:
-        profit_growth_score = 1  # Slow profit growth
+        profit_growth_score = 1
         profit_growth_assessment = "Slow"
     else:
-        profit_growth_score = 0  # Negative profit growth
+        profit_growth_score = 0
         profit_growth_assessment = "Negative/Declining"
     
     score += profit_growth_score
@@ -144,19 +199,19 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
         'max': 4
     }
     
-    # 6. Profit Margin (0-3 points) ⭐ NEW
+    # 7. Profit Margin (0-3 points)
     profit_margin = fundamentals.get('profit_margin', 0)
     if profit_margin > 15:
-        margin_score = 3  # Excellent margins
+        margin_score = 3
         margin_assessment = "Excellent"
     elif profit_margin > 10:
-        margin_score = 2  # Good margins
+        margin_score = 2
         margin_assessment = "Good"
     elif profit_margin > 5:
-        margin_score = 1  # Fair margins
+        margin_score = 1
         margin_assessment = "Fair"
     else:
-        margin_score = 0  # Poor margins
+        margin_score = 0
         margin_assessment = "Poor"
     
     score += margin_score
@@ -168,15 +223,15 @@ def calculate_fundamental_score(fundamentals: Dict) -> Dict:
     }
     
     return {
-        'total_score': min(score, 20),
+        'total_score': min(score, 25),
         'breakdown': breakdown,
-        'max_score': 20
+        'max_score': 25
     }
 
 
 def is_quality_stock(fundamentals: Dict, min_score: int = None) -> Dict:
     """
-    Check if stock passes quality criteria (Updated for 20-point scale)
+    Check if stock passes quality criteria (Updated for 25-point scale)
     
     Args:
         fundamentals: Dictionary with fundamental metrics
@@ -188,9 +243,9 @@ def is_quality_stock(fundamentals: Dict, min_score: int = None) -> Dict:
     result = calculate_fundamental_score(fundamentals)
     score = result['total_score']
     
-    # Use config default if not provided
+    # Use config default if not provided (Default 12/25)
     if min_score is None:
-        min_score = QUALITY_THRESHOLDS['min_fundamental_score']
+        min_score = 12 
     
     # Check if data is estimated
     data_quality = fundamentals.get('_data_quality', 'actual')
@@ -203,62 +258,52 @@ def is_quality_stock(fundamentals: Dict, min_score: int = None) -> Dict:
     # Strict quality filters
     checks = []
     
-    # Check 1: Debt Level (from config)
+    # Check 1: Debt Level
     debt_equity = fundamentals.get('debt_to_equity', 1000)
-    debt_ok = debt_equity < QUALITY_THRESHOLDS['max_debt_equity']
+    debt_ok = debt_equity < 200 # < 2.0
     checks.append({
         'name': 'Debt Level',
         'pass': debt_ok,
         'value': debt_equity,
-        'criteria': f"< {QUALITY_THRESHOLDS['max_debt_equity']}"
+        'criteria': "< 200"
     })
     
-    # Check 2: ROE (from config)
+    # Check 2: ROE
     roe = fundamentals.get('roe', 0)
-    roe_ok = roe > QUALITY_THRESHOLDS['min_roe']
+    roe_ok = roe > 10
     checks.append({
         'name': 'ROE',
         'pass': roe_ok,
         'value': f"{roe:.1f}%",
-        'criteria': f"> {QUALITY_THRESHOLDS['min_roe']}%"
+        'criteria': "> 10%"
     })
     
-    # Check 3: P/E Ratio (from config)
-    pe_ratio = fundamentals.get('pe_ratio', 0)
-    pe_ok = 0 < pe_ratio < QUALITY_THRESHOLDS['max_pe_ratio'] if pe_ratio > 0 else False
-    checks.append({
-        'name': 'P/E Ratio',
-        'pass': pe_ok,
-        'value': pe_ratio,
-        'criteria': f"< {QUALITY_THRESHOLDS['max_pe_ratio']}"
-    })
-    
-    # Check 4: Profit Growth (from config)
+    # Check 3: Profit Growth
     profit_growth = fundamentals.get('profit_growth', -100)
-    profit_growth_ok = profit_growth > QUALITY_THRESHOLDS['min_profit_growth']
+    profit_growth_ok = profit_growth > 0
     checks.append({
         'name': 'Profit Growth',
         'pass': profit_growth_ok,
         'value': f"{profit_growth:.1f}%",
-        'criteria': f"> {QUALITY_THRESHOLDS['min_profit_growth']}%"
+        'criteria': "> 0%"
     })
     
-    # Check 5: Profit Margin (from config)
-    profit_margin = fundamentals.get('profit_margin', 0)
-    profit_margin_ok = profit_margin > QUALITY_THRESHOLDS['min_profit_margin']
+    # Check 4: Promoter Pledging ⭐ NEW
+    pledged_shares = fundamentals.get('pledged_shares', 0)
+    pledging_ok = pledged_shares < 5
     checks.append({
-        'name': 'Profit Margin',
-        'pass': profit_margin_ok,
-        'value': f"{profit_margin:.1f}%",
-        'criteria': f"> {QUALITY_THRESHOLDS['min_profit_margin']}%"
+        'name': 'Promoter Pledging',
+        'pass': pledging_ok,
+        'value': f"{pledged_shares:.1f}%",
+        'criteria': "< 5%"
     })
     
-    # Check 6: Overall fundamental score
+    # Check 5: Overall fundamental score
     score_ok = score >= min_score
     checks.append({
         'name': 'Fundamental Score',
         'pass': score_ok,
-        'value': f"{score}/20",
+        'value': f"{score}/25",
         'criteria': f'>= {min_score}'
     })
     

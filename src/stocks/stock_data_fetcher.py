@@ -104,6 +104,10 @@ def fetch_fundamentals(symbol: str, exchange: str = 'NSE') -> Dict:
             'current_price': safe_get_ratio(info, 'currentPrice', 'regularMarketPrice'),
             'fifty_two_week_high': safe_get_ratio(info, 'fiftyTwoWeekHigh'),
             'fifty_two_week_low': safe_get_ratio(info, 'fiftyTwoWeekLow'),
+            'peg_ratio': safe_get_ratio(info, 'pegRatio'),
+            'promoter_holding': safe_get_ratio(info, 'heldPercentInsiders', multiply_by_100=True),
+            'pledged_shares': 0,  # Placeholder: yfinance doesn't provide pledging data for Indian stocks
+            'median_pe': 0,       # Placeholder: Requires historical earnings data
         }
         
         # Try to calculate ROE manually if it's 0

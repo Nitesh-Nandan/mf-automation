@@ -136,21 +136,19 @@ def analyze_stock_dip(
         score_breakdown = {}
         total_score = 0
         
-        # === FACTOR 1: Dip Depth (0-25 points) ===
+        # === FACTOR 1: Dip Depth (0-15 points) ===
         current_price = price_data[-1]['close']
         peak_price = max([d['close'] for d in recent_data])
         dip_percentage = ((peak_price - current_price) / peak_price) * 100
         
-        if dip_percentage >= 20:
-            dip_score = 25
-        elif dip_percentage >= 15:
-            dip_score = 22
-        elif dip_percentage >= 12:
-            dip_score = 18
-        elif dip_percentage >= 10:
+        if dip_percentage >= 15:
             dip_score = 15
-        elif dip_percentage >= 7:
+        elif dip_percentage >= 12:
+            dip_score = 12
+        elif dip_percentage >= 10:
             dip_score = 10
+        elif dip_percentage >= 8:
+            dip_score = 8
         elif dip_percentage >= 5:
             dip_score = 5
         else:
@@ -159,7 +157,7 @@ def analyze_stock_dip(
         score_breakdown['dip_depth'] = {
             'score': dip_score,
             'value': dip_percentage,
-            'max': 25
+            'max': 15
         }
         total_score += dip_score
         
@@ -281,14 +279,14 @@ def analyze_stock_dip(
         }
         total_score += cap_score
         
-        # === FACTOR 7: Fundamentals (0-20 points) ⭐ ENHANCED ===
+        # === FACTOR 7: Fundamentals (0-25 points) ⭐ ENHANCED ===
         fundamental_result = calculate_fundamental_score(fundamentals)
         fundamental_score = fundamental_result['total_score']
         
         score_breakdown['fundamentals'] = {
             'score': fundamental_score,
             'breakdown': fundamental_result['breakdown'],
-            'max': 20
+            'max': 25
         }
         total_score += fundamental_score
         
@@ -297,14 +295,14 @@ def analyze_stock_dip(
         
         # RSI (0-5 points)
         rsi = calculate_rsi(price_data)
-        if rsi < 30:
-            rsi_score = 5  # Oversold
-        elif rsi < 40:
-            rsi_score = 4
+        if rsi < 40:
+            rsi_score = 5  # Oversold (Bluechip adjusted)
         elif rsi < 50:
             rsi_score = 3
-        else:
+        elif rsi < 60:
             rsi_score = 1
+        else:
+            rsi_score = 0
         
         technical_score += rsi_score
         
@@ -333,8 +331,8 @@ def analyze_stock_dip(
         }
         total_score += technical_score
         
-        # Normalize total score to 100 (from 125: 15+15+15+15+15+5+20+10+10+5)
-        final_score = (total_score / 125) * 100
+        # Normalize total score to 100 (from 120: 15+20+15+15+15+5+25+10)
+        final_score = (total_score / 120) * 100
         
         # === GENERATE RECOMMENDATION === (from config)
         threshold = DIP_THRESHOLDS.get(mode, DIP_THRESHOLDS['conservative'])
@@ -419,7 +417,7 @@ def analyze_all_stocks(mode: str = 'conservative') -> List[Dict]:
             # Show quality check failures in detail
             if 'quality_check' in result:
                 qc = result['quality_check']
-                print(f"     Fundamental Score: {qc['fundamental_score']}/20")
+                print(f"     Fundamental Score: {qc['fundamental_score']}/25")
                 failed_checks = [c for c in qc['checks'] if not c['pass']]
                 if failed_checks:
                     print(f"     Failed checks:")
