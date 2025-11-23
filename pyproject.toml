@@ -13,4 +13,5 @@ dependencies = [
     "apscheduler>=3.10.4",
     "black>=24.0.0",
     "isort>=5.13.0",
+    "gspread>=6.0.0",
 ]
