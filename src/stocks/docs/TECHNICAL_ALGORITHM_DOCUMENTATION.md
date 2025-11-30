@@ -25,8 +25,8 @@ This algorithm assumes the user has **already filtered** for fundamental quality
 ```
 1. Dip Depth            (0-20 pts)  - How cheap is it?
 2. Historical Context   (0-25 pts)  - Is this a rare opportunity?
-3. Mean Reversion       (0-15 pts)  - Is it below the 200 DMA? (Deep Value)
-4. Volatility           (0-10 pts)  - Is risk manageable?
+3. Mean Reversion       (0-15 pts)  - Is it below the 100 DMA? (Value Zone)
+4. Volatility           (0-10 pts)  - Stock-specific risk check
 5. Recovery Speed       (0-20 pts)  - Does it bounce back fast?
 6. Technicals           (0-10 pts)  - RSI & Bull Market Support (Timing)
 ```
@@ -85,42 +85,71 @@ else:                     0 pts
 ## 📉 Factor 3: Mean Reversion (0-15 points)
 
 ### What It Measures
-**Deep Value Check:** How far the price is relative to the **200-Day Moving Average (DMA)**.
+**Deep Value Check:** How far the price is relative to the **100-Day Moving Average (DMA)**.
 
 ### Why It Matters
-The 200 DMA is the institutional "Line in the Sand".
-*   **Above 200 DMA:** Bull Trend.
-*   **Below 200 DMA:** Value Zone (or Bear Trend).
+The 100 DMA represents the intermediate-term trend (3-4 months).
+*   **Above 100 DMA:** Healthy uptrend
+*   **Below 100 DMA:** Correction territory / Value opportunity
 
-For Blue-Chip stocks, falling **below** the 200 DMA is a rare buying opportunity. This factor rewards you for buying when the stock is "statistically cheap."
+For quality stocks, dipping **below** the 100 DMA during corrections is a strong buying signal. This factor rewards you for buying when the stock is "statistically cheap" relative to its recent trend.
 
 ### Scoring Logic
 ```python
-Price vs 200 DMA:
+distance_from_100dma = ((price - dma_100) / dma_100) * 100
 
-< 0% (Below 200 DMA):   15 pts  # Deep Value (Rare!)
-0-2% (At 200 DMA):      10 pts  # Great Value
-2-5% (Near 200 DMA):    5 pts   # Good Value
-> 5% (Far above):       0 pts   # Normal Pricing
+-6% ≤ distance < 0%:      15 pts  # Below 100 DMA (Sweet Spot!)
+0% ≤ distance ≤ 3%:       12 pts  # At 100 DMA (Testing Support)
+-12% ≤ distance < -6%:     8 pts  # Deep below (Caution: verify fundamentals)
+3% < distance ≤ 6%:        5 pts  # Slight premium (Early dip)
+6% < distance ≤ 10%:       2 pts  # Moderately above
+else:                      0 pts  # Either too expensive or falling knife (< -12%)
 ```
+
+### Key Insight
+A stock 3% below its 100 DMA is in a **normal correction**.
+A stock 15% below its 100 DMA might be a **falling knife** (score drops to 0 to protect you).
 
 ---
 
 ## 📊 Factor 4: Volatility (0-10 points)
 
 ### What It Measures
-Annualized volatility.
+Current volatility relative to the stock's own historical average (not absolute thresholds).
 
 ### Why It Matters
-Slightly reduced weight (10 pts) because we assume the user has picked stable stocks. We still penalize extreme volatility as it suggests "falling knife" risk.
+**Stock-Specific Volatility Assessment.** Each stock has its own "normal" volatility:
+- Asian Paints: ~15% is normal
+- Zomato: ~40% is normal
+
+We want to buy when the stock dips with **controlled volatility** (orderly correction), not during panic spikes (falling knife).
+
+### Calculation Method
+```python
+# Baseline: Stock's typical volatility over 2 years
+historical_avg_vol = annualized_volatility(2_year_data)
+
+# Current: Recent volatility (90 days)
+current_vol = annualized_volatility(90_day_data)
+
+# Ratio: How volatile is it NOW vs its NORMAL?
+vol_ratio = current_vol / historical_avg_vol
+```
 
 ### Scoring Logic
 ```python
-15% ≤ vol ≤ 30%:    10 pts  # Ideal
-10% ≤ vol < 15%:    8 pts   # Low
-30% < vol ≤ 45%:    5 pts   # High
-> 45%:              0 pts   # Dangerous
+0.85 ≤ vol_ratio ≤ 1.15:    10 pts  # Normal range (healthy dip)
+0.70 ≤ vol_ratio < 0.85:     8 pts  # Quieter than usual (controlled decline)
+1.15 < vol_ratio ≤ 1.40:     6 pts  # Moderate spike
+1.40 < vol_ratio ≤ 1.75:     3 pts  # High spike (caution)
+vol_ratio > 1.75:            0 pts  # Extreme spike (falling knife)
+vol_ratio < 0.70:            5 pts  # Too quiet (slow bleed)
 ```
+
+### Interpretation
+- **vol_ratio = 1.0** → Stock dipping with normal volatility (ideal)
+- **vol_ratio = 1.5** → Stock dipping with 50% more volatility than usual (risky)
+- **vol_ratio = 2.0** → Stock in panic mode (avoid)
 
 ---
 
@@ -151,8 +180,8 @@ Avg Recovery Time:
 **Timing Indicators** to fine-tune the exact entry point.
 
 ### Distinction from Factor 3
-*   **Factor 3 (Mean Reversion)** asks: "Is it cheap?" (Below 200 DMA).
-*   **Factor 6 (Technicals)** asks: "Is it bouncing?" (Support at 50/100 DMA).
+*   **Factor 3 (Mean Reversion)** asks: "Is it cheap?" (Below 100 DMA).
+*   **Factor 6 (Technicals)** asks: "Is it bouncing?" (Support at 50/100 DMA with RSI).
 
 ### Scoring Logic
 
@@ -190,13 +219,15 @@ Maximum: 100 points
 
 ### Recommendation Thresholds
 
-| Score | Recommendation | Allocation | Meaning |
+| Score | Recommendation | Position Size | Meaning |
 | :--- | :--- | :--- | :--- |
-| **85-100** | **STRONG BUY** | 20% | Rare, "Back up the truck" moment |
-| **75-84** | **BUY** | 15% | Excellent entry |
-| **60-74** | **ACCUMULATE** | 10% | Good standard dip |
-| **50-59** | **NIBBLE** | 5% | Small starter position |
+| **85-100** | **STRONG BUY** | 1.0x standard | Rare, "Back up the truck" moment |
+| **75-84** | **BUY** | 0.75x standard | Excellent entry |
+| **60-74** | **ACCUMULATE** | 0.50x standard | Good standard dip |
+| **50-59** | **NIBBLE** | 0.25x standard | Small starter position |
 | **< 50** | **WAIT** | 0% | Not cheap enough |
+
+**Note:** "Standard position" is your pre-defined position size per stock (e.g., 5% of portfolio). This multiplier approach maintains risk discipline while allowing flexibility.
 
 ---
 
@@ -212,5 +243,9 @@ This algorithm **CANNOT** detect fundamental deterioration.
 
 ---
 
-**Version:** 1.1 (Technical Only - 200 DMA Enhanced)
+**Version:** 2.0 (Technical Only - Optimized for Active Dip-Buying)
 **Date:** November 2025
+**Key Updates:**
+- Switched to 100 DMA for more frequent signals
+- Relative volatility (stock-specific calibration)
+- Position size multipliers for risk management

@@ -1,4 +1,5 @@
 import logging
+
 from google_sheet import SpreadSheet
 
 logging.basicConfig(level=logging.INFO)
@@ -13,7 +14,6 @@ def get_spreadsheet():
     data = worksheet.get_all_records()
     print(data)
 
+
 if __name__ == "__main__":
     get_spreadsheet()
-
-

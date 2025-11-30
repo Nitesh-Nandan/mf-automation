@@ -1,57 +1,164 @@
-# 📈 Stock Dip Analyzer
+# 📊 Stock Technical Analysis
 
-Blue-chip stock dip-buying analyzer for Indian market.
+Algorithmic dip-buying analyzer for fundamentally strong Indian stocks using 6-factor scoring system.
 
-## 🚀 Quick Start
+## 🎯 Quick Start
 
 ```bash
-cd src/stocks
-uv run python stock_dip_analyzer.py
+# Run example analysis
+python src/stocks/run_analysis.py
 ```
 
-## 📂 Files
+## 📁 Project Structure
 
-| File | Purpose |
-|------|---------|
-| `stock_dip_analyzer.py` | Main analyzer - run this |
-| `stock_data_fetcher.py` | Fetches price & fundamentals from yfinance |
-| `fundamental_analyzer.py` | Quality scoring & checks |
-| `config.py` | Configuration & thresholds |
-| `stocks_watchlist.csv` | Your watchlist |
+```
+src/stocks/
+├── TechnicalAnalysis.py    # Main analyzer class
+├── TechnicalScore.py        # Scoring configuration & logic
+├── models.py                # Type definitions
+├── historical_data.py       # Upstox API integration
+├── run_analysis.py          # Standalone runner script
+├── stocks_watchlist.csv     # Your stock watchlist
+└── docs/
+    └── TECHNICAL_ALGORITHM_DOCUMENTATION.md  # Algorithm details
+```
+
+## 🔧 Core Components
+
+### **TechnicalAnalysis Class**
+Main orchestrator that fetches data and coordinates scoring.
+
+```python
+from stocks import TechnicalAnalysis
+
+analyzer = TechnicalAnalysis(
+    stock_name="Asian Paints",
+    stock_symbol="ASIANPAINT",
+    instrument_key="NSE_EQ|INE021A01026"
+)
+
+result = analyzer.analyze()
+```
+
+### **6-Factor Scoring System** (Total: 100 points)
+
+1. **Dip Depth** (0-20 pts) - How far from 90-day peak?
+2. **Historical Context** (0-25 pts) - Is this dip rare for THIS stock?
+3. **Mean Reversion** (0-15 pts) - Distance from 100 DMA
+4. **Volatility** (0-10 pts) - Stock-specific risk (relative scoring)
+5. **Recovery Speed** (0-20 pts) - How fast does it bounce back?
+6. **Technicals** (0-10 pts) - RSI + Volume + Support levels
+
+### **Recommendations**
+
+| Score | Action | Position Multiplier |
+|-------|--------|-------------------|
+| 85-100 | **STRONG BUY** | 1.0x standard position |
+| 75-84 | **BUY** | 0.75x |
+| 60-74 | **ACCUMULATE** | 0.50x |
+| 50-59 | **NIBBLE** | 0.25x |
+| < 50 | **WAIT** | 0x |
+
+## 🚀 Usage Examples
+
+### **Single Stock Analysis**
+
+```python
+from stocks import TechnicalAnalysis
+
+analyzer = TechnicalAnalysis(
+    stock_name="HDFC Bank",
+    stock_symbol="HDFCBANK",
+    instrument_key="NSE_EQ|INE040A01034"
+)
+
+result = analyzer.analyze()
+
+if result:
+    print(f"Score: {result['final_score']}/100")
+    print(f"Recommendation: {result['recommendation']}")
+    print(f"Current: ₹{result['current_price']} | RSI: {result['rsi']}")
+```
+
+### **Batch Analysis**
+
+```python
+import csv
+from stocks import TechnicalAnalysis
+
+# Load watchlist
+with open('src/stocks/stocks_watchlist.csv') as f:
+    stocks = list(csv.DictReader(f))
+
+# Analyze each
+for stock in stocks:
+    analyzer = TechnicalAnalysis(
+        stock_name=stock['name'],
+        stock_symbol=stock['symbol'],
+        instrument_key=stock.get('instrument_key', '')  # Add this column
+    )
+    result = analyzer.analyze()
+    if result and result['final_score'] >= 60:
+        print(f"{stock['symbol']}: {result['final_score']:.0f} - {result['recommendation']}")
+```
 
 ## ⚙️ Configuration
 
-Edit `config.py` to adjust:
-- Fundamental defaults (market averages)
-- P/E scoring thresholds
-- Quality check criteria
-- Dip buying sensitivity
+All scoring thresholds are in `TechnicalScore.py`:
 
-## 📊 How It Works
+```python
+# Adjust dip depth thresholds
+DIP_DEPTH_THRESHOLDS = {
+    20: 20,  # >=20% dip → 20 points
+    15: 18,  # >=15% dip → 18 points
+    # ...
+}
 
-8-factor scoring system:
-1. **Dip Depth** (0-15 pts) - How far from peak
-2. **Historical Context** (0-20 pts) - vs past dips
-3. **Mean Reversion** (0-15 pts) - Below average
-4. **Volatility** (0-15 pts) - Risk/reward
-5. **Recovery Speed** (0-15 pts) - Resilience
-6. **Market Cap** (0-5 pts) - Size bonus
-7. **Fundamentals** (0-20 pts) - Quality metrics
-8. **Technicals** (0-10 pts) - RSI, volume, support
+# Adjust recommendation thresholds
+RECOMMENDATION_THRESHOLDS = {
+    85: ("STRONG BUY", 1.0),
+    75: ("BUY", 0.75),
+    # ...
+}
+```
 
-**Total:** 0-125 points → normalized to 100
+## 📊 Data & API
 
-## 📖 Documentation
+- **Source**: Upstox API (requires `UPSTOX_ACCESS_TOKEN` in `.env`)
+- **Lookback**: 730 days (2 years) for historical context
+- **Updates**: Real-time LTP during market hours
 
-See `docs/` folder for:
-- Refactoring summary
-- Scoring enhancements
-- Full analyzer guide
+## 🎓 Algorithm Philosophy
 
-## 🎯 Modes
+> **"Human for Quality, Machine for Timing"**
 
-- **Conservative** (65+) - High quality only
-- **Moderate** (55+) - Balanced
-- **Aggressive** (45+) - More opportunities
+This algorithm assumes you've already filtered for fundamental quality (strong balance sheet, good management, etc.). It focuses purely on **timing** the entry during corrections.
 
-Change mode in script or pass as argument.
+**Key Features:**
+- ✅ Stock-specific calibration (what's normal for HUL vs Zomato)
+- ✅ Relative volatility (compares to stock's own history)
+- ✅ 100 DMA for active dip-buying (more signals than 200 DMA)
+- ✅ Recovery speed as quality proxy
+
+## ⚠️ Important Warning
+
+**This algorithm CANNOT detect fundamental deterioration.**
+
+Always check news before buying:
+- Management changes
+- Regulatory issues
+- Earnings misses
+- Sector headwinds
+
+A high score means "technical opportunity" not "safe investment."
+
+## 📚 Documentation
+
+- **Algorithm Details**: `docs/TECHNICAL_ALGORITHM_DOCUMENTATION.md`
+- **Quick Reference**: `QUICK_START.md`
+
+## 🔄 Version
+
+**v2.0** - Technical Only (100 DMA, Relative Volatility)
+- Updated: November 2025
+- Based on 6-factor price action system
