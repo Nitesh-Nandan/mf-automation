@@ -49,6 +49,8 @@ class TechnicalAnalysis:
         self.instrument_key = instrument_key
         self.raw_data: List[List] = []
         self.current_price: float = 0.0
+        self.previous_close: float = 0.0
+        self.today_volume: int = 0
 
     def analyze(self) -> Optional[AnalysisResult]:
         """
@@ -139,19 +141,32 @@ class TechnicalAnalysis:
                 print(f"Error: No candle data for {self.stock_symbol}")
                 return False
 
-            # Get current price
+            # Get current price + metadata from LTP
             ltp_response = get_ltp(self.instrument_key)
 
             if ltp_response and ltp_response.get("data"):
-                self.current_price = (
-                    ltp_response.get("data", {})
-                    .get(self.instrument_key, {})
-                    .get("last_price", 0.0)
-                )
+                # LTP response has data keyed by "NSE_EQ:SYMBOL", not by instrument_key
+                # Get the first (and only) instrument data from response
+                data_dict = ltp_response.get("data", {})
+                if data_dict:
+                    # Get first value from the dict (there's only one instrument)
+                    instrument_data = next(iter(data_dict.values()), {})
+
+                    self.current_price = instrument_data.get("last_price", 0.0)
+                    self.previous_close = instrument_data.get(
+                        "cp", 0.0
+                    )  # Store previous close
+                    self.today_volume = instrument_data.get(
+                        "volume", 0
+                    )  # Store today's volume
 
             # Fallback to latest close if LTP not available
             if self.current_price == 0.0 and self.raw_data:
                 self.current_price = self.raw_data[0][4]
+
+            # Fallback for previous close if not available from LTP
+            if self.previous_close == 0.0 and self.raw_data:
+                self.previous_close = self.raw_data[0][4]
 
             return True
 
@@ -165,7 +180,7 @@ class TechnicalAnalysis:
 
     def _transform_data(self) -> List[OHLCVData]:
         """
-        Transform Upstox candle data to OHLCVData format
+        Transform Upstox candle data to OHLCVData format + add today's synthetic candle
 
         Upstox format: [timestamp, open, high, low, close, volume, oi]
         Returns: List of dicts sorted by date (oldest first)
@@ -185,6 +200,38 @@ class TechnicalAnalysis:
 
         # Sort by date ascending (oldest first)
         transformed.sort(key=lambda x: x["date"])
+
+        # Add today's synthetic candle using LTP data
+        today = datetime.now().strftime("%Y-%m-%d")
+        latest_date = transformed[-1]["date"] if transformed else None
+
+        if latest_date and latest_date != today and self.current_price > 0:
+            # Use previous close from LTP (or fall back to yesterday's close)
+            prev_close = (
+                self.previous_close
+                if self.previous_close > 0
+                else transformed[-1]["close"]
+            )
+
+            # Create synthetic candle for today
+            # Note: high=low=close because we don't have intraday range
+            transformed.append(
+                {
+                    "date": today,
+                    "open": prev_close,  # Yesterday's close = today's open
+                    "high": self.current_price,  # Conservative: use current price
+                    "low": self.current_price,  # Conservative: use current price
+                    "close": self.current_price,  # Current LTP
+                    "volume": self.today_volume,  # From LTP response
+                }
+            )
+            change_pct = (
+                ((self.current_price / prev_close - 1) * 100) if prev_close > 0 else 0
+            )
+            print(
+                f"   ✓ Added today ({today}): Open={prev_close:.2f}, Close={self.current_price:.2f}, Δ={change_pct:.2f}%"
+            )
+
         return transformed
 
     # =========================================================================

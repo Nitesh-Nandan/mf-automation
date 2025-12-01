@@ -103,3 +103,5 @@ if __name__ == "__main__":
 
     if historical_data and ltp_data:
         print("✓ API test successful")
+
+    print(ltp_data)

@@ -10,6 +10,7 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from stocks.TechnicalAnalysis import TechnicalAnalysis
+from stocks.historical_data import get_ltp
 
 
 def main():
@@ -19,10 +20,13 @@ def main():
 
     # Example: Analyze Asian Paints
     analyzer = TechnicalAnalysis(
-        stock_name="Asian Paints",
-        stock_symbol="ASIANPAINT",
-        instrument_key="NSE_EQ|INE021A01026",
+        stock_name="ADANI TOTAL GAS LIMITED",
+        stock_symbol="ATGL",
+        instrument_key="NSE_EQ|INE399L01023",
     )
+
+    print(get_ltp(analyzer.instrument_key))
+    print("--------------------------------")
 
     result = analyzer.analyze()
 
