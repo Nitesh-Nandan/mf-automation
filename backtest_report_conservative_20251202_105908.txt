@@ -1,0 +1,117 @@
+================================================================================
+STOCK DIP BUYING STRATEGY - BACKTEST REPORT (CONSERVATIVE MODE)
+================================================================================
+Generated: 2025-12-02 10:59:08
+Threshold: 75 points
+
+📊 OVERALL SUMMARY
+--------------------------------------------------------------------------------
+Stocks Tested: 7
+Total Buy Signals: 35
+Avg Outperformance: +1.17%
+Stocks Beating Baseline: 4/7 (57.1%)
+
+📈 INDIVIDUAL STOCK RESULTS
+--------------------------------------------------------------------------------
+
+ATGL - Adani Total Gas
+  Period: 2024-06-13 to 2025-12-01 (365 days)
+  Signals: 0
+  Total Invested: ₹0
+  Avg Buy Price: ₹0.00 | Final Price: ₹606.85
+  Strategy Return: +0.00%
+  Baseline Return: -35.84%
+  Outperformance: +35.84%
+  Win Rate: 0.0%
+
+HAL - HAL
+  Period: 2024-06-13 to 2025-12-01 (365 days)
+  Signals: 10
+  Total Invested: ₹100,000
+  Avg Buy Price: ₹4345.79 | Final Price: ₹4530.70
+  Strategy Return: +4.25%
+  Baseline Return: -11.16%
+  Outperformance: +15.41%
+  Win Rate: 70.0%
+
+  Top 3 Buys:
+    1. 2024-11-13 | ₹4066.90 | Score: 80 | Return: +11.40%
+    2. 2024-10-24 | ₹4197.15 | Score: 78 | Return: +7.95%
+    3. 2024-11-04 | ₹4208.25 | Score: 88 | Return: +7.66%
+
+PIDILITIND - Pidilite Industries
+  Period: 2024-06-13 to 2025-12-01 (365 days)
+  Signals: 3
+  Total Invested: ₹30,000
+  Avg Buy Price: ₹1446.71 | Final Price: ₹1468.60
+  Strategy Return: +0.45%
+  Baseline Return: -4.59%
+  Outperformance: +5.05%
+  Win Rate: 66.7%
+
+  Top 3 Buys:
+    1. 2025-01-15 | ₹1401.40 | Score: 76 | Return: +4.80%
+    2. 2025-01-06 | ₹1447.40 | Score: 76 | Return: +1.46%
+    3. 2024-11-13 | ₹1494.30 | Score: 75 | Return: -1.72%
+
+TITAN - Titan Company
+  Period: 2024-06-13 to 2025-12-01 (365 days)
+  Signals: 6
+  Total Invested: ₹60,000
+  Avg Buy Price: ₹3216.11 | Final Price: ₹3894.90
+  Strategy Return: +12.66%
+  Baseline Return: +12.17%
+  Outperformance: +0.49%
+  Win Rate: 100.0%
+
+  Top 3 Buys:
+    1. 2025-03-17 | ₹3017.35 | Score: 76 | Return: +29.08%
+    2. 2024-11-13 | ₹3187.85 | Score: 76 | Return: +22.18%
+    3. 2024-11-04 | ₹3222.00 | Score: 76 | Return: +20.88%
+
+M&M - Mahindra & Mahindra
+  Period: 2024-06-13 to 2025-12-01 (365 days)
+  Signals: 7
+  Total Invested: ₹70,000
+  Avg Buy Price: ₹2720.95 | Final Price: ₹3741.60
+  Strategy Return: +26.26%
+  Baseline Return: +30.75%
+  Outperformance: -4.49%
+  Win Rate: 100.0%
+
+  Top 3 Buys:
+    1. 2025-04-07 | ₹2491.25 | Score: 75 | Return: +50.19%
+    2. 2025-02-21 | ₹2669.35 | Score: 84 | Return: +40.17%
+    3. 2025-03-05 | ₹2726.60 | Score: 76 | Return: +37.23%
+
+MARICO - Marico
+  Period: 2024-06-13 to 2025-12-01 (365 days)
+  Signals: 6
+  Total Invested: ₹60,000
+  Avg Buy Price: ₹613.69 | Final Price: ₹718.95
+  Strategy Return: +10.29%
+  Baseline Return: +17.62%
+  Outperformance: -7.33%
+  Win Rate: 100.0%
+
+  Top 3 Buys:
+    1. 2025-03-05 | ₹589.15 | Score: 80 | Return: +22.03%
+    2. 2024-11-13 | ₹597.20 | Score: 78 | Return: +20.39%
+    3. 2025-03-17 | ₹607.55 | Score: 78 | Return: +18.34%
+
+BHARTIARTL - Bharti Airtel
+  Period: 2024-06-13 to 2025-12-01 (365 days)
+  Signals: 3
+  Total Invested: ₹30,000
+  Avg Buy Price: ₹1576.50 | Final Price: ₹2089.70
+  Strategy Return: +9.77%
+  Baseline Return: +46.57%
+  Outperformance: -36.80%
+  Win Rate: 100.0%
+
+  Top 3 Buys:
+    1. 2024-11-13 | ₹1550.45 | Score: 87 | Return: +34.78%
+    2. 2025-01-06 | ₹1588.45 | Score: 78 | Return: +31.56%
+    3. 2024-11-04 | ₹1591.25 | Score: 83 | Return: +31.32%
+
+================================================================================

@@ -223,7 +223,7 @@ def analyze_and_update_sheet(
 if __name__ == "__main__":
     # Analyze stocks from Emerging worksheet
     sheet_names = ["nifty50", "Emerging", "Monopoly", "Bluechip"]
-    analyze_and_update_sheet(sheet_names[0:2])
+    analyze_and_update_sheet(sheet_names)
 
     # Or analyze multiple worksheets:
     # analyze_and_update_sheet(["Emerging", "Bluechip", "Current"])

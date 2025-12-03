@@ -1,0 +1,2066 @@
+[
+  {
+    "stock_name": "Adani Total Gas",
+    "stock_symbol": "ATGL",
+    "mode": "conservative",
+    "threshold": 75,
+    "backtest_period_days": 365,
+    "backtest_start_date": "2024-06-13",
+    "backtest_end_date": "2025-12-01",
+    "num_transactions": 0,
+    "total_invested": 0,
+    "shares_accumulated": 0.0,
+    "avg_buy_price": 0,
+    "final_price": 606.85,
+    "strategy_final_value": 100000.0,
+    "remaining_capital": 100000,
+    "strategy_return_pct": 0.0,
+    "baseline_start_price": 945.8,
+    "baseline_shares": 105.73059843518715,
+    "baseline_final_value": 64162.61366039332,
+    "baseline_return_pct": -35.84,
+    "outperformance": 35.84,
+    "win_rate": 0,
+    "transactions": []
+  },
+  {
+    "stock_name": "Titan Company",
+    "stock_symbol": "TITAN",
+    "mode": "conservative",
+    "threshold": 75,
+    "backtest_period_days": 365,
+    "backtest_start_date": "2024-06-13",
+    "backtest_end_date": "2025-12-01",
+    "num_transactions": 6,
+    "total_invested": 60000,
+    "shares_accumulated": 18.65607727025418,
+    "avg_buy_price": 3216.1101785135634,
+    "final_price": 3894.9,
+    "strategy_final_value": 112663.555359913,
+    "remaining_capital": 40000,
+    "strategy_return_pct": 12.66,
+    "baseline_start_price": 3472.2,
+    "baseline_shares": 28.800184321179657,
+    "baseline_final_value": 112173.83791256265,
+    "baseline_return_pct": 12.17,
+    "outperformance": 0.49,
+    "win_rate": 100.0,
+    "transactions": [
+      {
+        "date": "2024-07-04",
+        "price": 3336.0,
+        "shares": 2.997601918465228,
+        "amount": 10000,
+        "score": 77.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 13.09,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.78,
+            "max_historical_dip": 16.67,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -5.56,
+            "dma_100": 3532.47,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 6.0,
+            "vol_ratio": 1.27,
+            "current_vol": 25.18,
+            "baseline_vol": 19.83,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 23.5,
+            "recovery_count": 4,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 6.0,
+            "rsi": 36.71,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.48,
+            "volume_score": 0.0,
+            "support_score": 1.0,
+            "max_score": 10
+          },
+          "rsi": 36.70960187353631,
+          "dma_100": 3532.469,
+          "change_from_peak_pct": -13.086522679311157
+        },
+        "current_value": 11675.359712230216,
+        "return_pct": 16.753597122302164
+      },
+      {
+        "date": "2024-07-15",
+        "price": 3224.2,
+        "shares": 3.1015445691954597,
+        "amount": 10000,
+        "score": 77.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 16.0,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.9,
+            "max_historical_dip": 17.77,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -8.06,
+            "dma_100": 3506.66,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 6.0,
+            "vol_ratio": 1.25,
+            "current_vol": 24.89,
+            "baseline_vol": 19.99,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 23.5,
+            "recovery_count": 4,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 31.45,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.76,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 31.449682589239245,
+          "dma_100": 3506.6634999999997,
+          "change_from_peak_pct": -15.99927051038221
+        },
+        "current_value": 12080.205942559396,
+        "return_pct": 20.80205942559396
+      },
+      {
+        "date": "2024-10-24",
+        "price": 3330.9,
+        "shares": 3.0021915998679036,
+        "amount": 10000,
+        "score": 75.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 13.86,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.78,
+            "max_historical_dip": 17.77,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -4.34,
+            "dma_100": 3482.14,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.15,
+            "current_vol": 23.62,
+            "baseline_vol": 20.58,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 44.5,
+            "recovery_count": 50,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 18.97,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.66,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 18.966148215919503,
+          "dma_100": 3482.135,
+          "change_from_peak_pct": -13.86346004654771
+        },
+        "current_value": 11693.236062325499,
+        "return_pct": 16.93236062325499
+      },
+      {
+        "date": "2024-11-04",
+        "price": 3222.0,
+        "shares": 3.1036623215394163,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 16.68,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.94,
+            "max_historical_dip": 17.77,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -7.34,
+            "dma_100": 3477.21,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.14,
+            "current_vol": 23.41,
+            "baseline_vol": 20.58,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 44.5,
+            "recovery_count": 50,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 21.81,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.31,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 21.812278630460384,
+          "dma_100": 3477.2129999999997,
+          "change_from_peak_pct": -16.679596586501162
+        },
+        "current_value": 12088.454376163872,
+        "return_pct": 20.884543761638724
+      },
+      {
+        "date": "2024-11-13",
+        "price": 3187.85,
+        "shares": 3.136910456891008,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 17.56,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.91,
+            "max_historical_dip": 19.3,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -7.8,
+            "dma_100": 3457.57,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.11,
+            "current_vol": 22.87,
+            "baseline_vol": 20.57,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 44.5,
+            "recovery_count": 50,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 34.72,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.82,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 34.72177720815972,
+          "dma_100": 3457.57,
+          "change_from_peak_pct": -17.562710111197312
+        },
+        "current_value": 12217.952538544787,
+        "return_pct": 22.179525385447867
+      },
+      {
+        "date": "2025-03-17",
+        "price": 3017.35,
+        "shares": 3.3141664042951597,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 17.38,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.9,
+            "max_historical_dip": 19.3,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -8.57,
+            "dma_100": 3300.32,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.11,
+            "current_vol": 23.08,
+            "baseline_vol": 20.85,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 44.5,
+            "recovery_count": 50,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 32.75,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.87,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 32.74599299437422,
+          "dma_100": 3300.3175,
+          "change_from_peak_pct": -17.378148959474263
+        },
+        "current_value": 12908.346728089218,
+        "return_pct": 29.083467280892183
+      }
+    ]
+  },
+  {
+    "stock_name": "Pidilite Industries",
+    "stock_symbol": "PIDILITIND",
+    "mode": "conservative",
+    "threshold": 75,
+    "backtest_period_days": 365,
+    "backtest_start_date": "2024-06-13",
+    "backtest_end_date": "2025-12-01",
+    "num_transactions": 3,
+    "total_invested": 30000,
+    "shares_accumulated": 20.73675822388924,
+    "avg_buy_price": 1446.7063596005707,
+    "final_price": 1468.6,
+    "strategy_final_value": 100454.00312760373,
+    "remaining_capital": 70000,
+    "strategy_return_pct": 0.45,
+    "baseline_start_price": 1539.3,
+    "baseline_shares": 64.96459429610863,
+    "baseline_final_value": 95407.00318326513,
+    "baseline_return_pct": -4.59,
+    "outperformance": 5.05,
+    "win_rate": 66.7,
+    "transactions": [
+      {
+        "date": "2024-11-13",
+        "price": 1494.3,
+        "shares": 6.692096633875393,
+        "amount": 10000,
+        "score": 75.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 12.49,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.79,
+            "max_historical_dip": 15.76,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -5.35,
+            "dma_100": 1578.79,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.99,
+            "current_vol": 19.31,
+            "baseline_vol": 19.59,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 49.9,
+            "recovery_count": 75,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 37.1,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.61,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 37.097400077609635,
+          "dma_100": 1578.785,
+          "change_from_peak_pct": -12.48609077598829
+        },
+        "current_value": 9828.013116509403,
+        "return_pct": -1.7198688349059739
+      },
+      {
+        "date": "2025-01-06",
+        "price": 1447.4,
+        "shares": 6.908940168578139,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 15.23,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.94,
+            "max_historical_dip": 16.15,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -7.37,
+            "dma_100": 1562.49,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.98,
+            "current_vol": 19.27,
+            "baseline_vol": 19.61,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 49.9,
+            "recovery_count": 75,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 18.39,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.22,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 18.39323467230443,
+          "dma_100": 1562.489,
+          "change_from_peak_pct": -15.232796486090772
+        },
+        "current_value": 10146.469531573855,
+        "return_pct": 1.4646953157385543
+      },
+      {
+        "date": "2025-01-15",
+        "price": 1401.4,
+        "shares": 7.135721421435707,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 17.93,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.99,
+            "max_historical_dip": 18.1,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -9.92,
+            "dma_100": 1555.79,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.02,
+            "current_vol": 20.29,
+            "baseline_vol": 19.84,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 49.9,
+            "recovery_count": 75,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 35.84,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.66,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 35.83916083916081,
+          "dma_100": 1555.7910000000002,
+          "change_from_peak_pct": -17.926793557833083
+        },
+        "current_value": 10479.520479520479,
+        "return_pct": 4.79520479520479
+      }
+    ]
+  },
+  {
+    "stock_name": "Marico",
+    "stock_symbol": "MARICO",
+    "mode": "conservative",
+    "threshold": 75,
+    "backtest_period_days": 365,
+    "backtest_start_date": "2024-06-13",
+    "backtest_end_date": "2025-12-01",
+    "num_transactions": 6,
+    "total_invested": 60000,
+    "shares_accumulated": 97.76877126620323,
+    "avg_buy_price": 613.6928921468489,
+    "final_price": 718.95,
+    "strategy_final_value": 110290.85810183681,
+    "remaining_capital": 40000,
+    "strategy_return_pct": 10.29,
+    "baseline_start_price": 611.25,
+    "baseline_shares": 163.59918200408998,
+    "baseline_final_value": 117619.6319018405,
+    "baseline_return_pct": 17.62,
+    "outperformance": -7.33,
+    "win_rate": 100.0,
+    "transactions": [
+      {
+        "date": "2024-10-24",
+        "price": 634.25,
+        "shares": 15.766653527788726,
+        "amount": 10000,
+        "score": 77.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 12.0,
+            "dip_percentage": 11.89,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.9,
+            "max_historical_dip": 13.18,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -3.86,
+            "dma_100": 659.71,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.14,
+            "current_vol": 26.11,
+            "baseline_vol": 22.81,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 42.1,
+            "recovery_count": 76,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 24.49,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.75,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 24.487004103967166,
+          "dma_100": 659.706,
+          "change_from_peak_pct": -11.89136625685907
+        },
+        "current_value": 11335.435553803705,
+        "return_pct": 13.354355538037051
+      },
+      {
+        "date": "2024-11-13",
+        "price": 597.2,
+        "shares": 16.744809109176153,
+        "amount": 10000,
+        "score": 78.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 17.04,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.99,
+            "max_historical_dip": 17.27,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -9.53,
+            "dma_100": 660.12,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.14,
+            "current_vol": 26.35,
+            "baseline_vol": 23.06,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 42.1,
+            "recovery_count": 76,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 7.0,
+            "rsi": 36.51,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.9,
+            "volume_score": 2.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 36.51255915544235,
+          "dma_100": 660.1175,
+          "change_from_peak_pct": -17.038271862193508
+        },
+        "current_value": 12038.680509042195,
+        "return_pct": 20.38680509042195
+      },
+      {
+        "date": "2025-02-12",
+        "price": 632.15,
+        "shares": 15.819030293443012,
+        "amount": 10000,
+        "score": 77.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 14.21,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.79,
+            "max_historical_dip": 17.91,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -2.93,
+            "dma_100": 651.24,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.04,
+            "current_vol": 24.42,
+            "baseline_vol": 23.52,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 42.1,
+            "recovery_count": 76,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 7.0,
+            "rsi": 33.57,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.62,
+            "volume_score": 0.0,
+            "support_score": 2.0,
+            "max_score": 10
+          },
+          "rsi": 33.57452966714902,
+          "dma_100": 651.237,
+          "change_from_peak_pct": -14.214954539286198
+        },
+        "current_value": 11373.091829470854,
+        "return_pct": 13.730918294708536
+      },
+      {
+        "date": "2025-02-21",
+        "price": 624.8,
+        "shares": 16.005121638924457,
+        "amount": 10000,
+        "score": 78.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 15.21,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.85,
+            "max_historical_dip": 17.91,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -3.39,
+            "dma_100": 646.72,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.04,
+            "current_vol": 24.65,
+            "baseline_vol": 23.64,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 42.1,
+            "recovery_count": 76,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 24.27,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.14,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 24.271330153683053,
+          "dma_100": 646.7230000000001,
+          "change_from_peak_pct": -15.212376170443754
+        },
+        "current_value": 11506.88220230474,
+        "return_pct": 15.068822023047396
+      },
+      {
+        "date": "2025-03-05",
+        "price": 589.15,
+        "shares": 16.973606042603752,
+        "amount": 10000,
+        "score": 80.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 20.0,
+            "dip_percentage": 20.05,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.99,
+            "max_historical_dip": 20.24,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -8.05,
+            "dma_100": 640.76,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.04,
+            "current_vol": 24.68,
+            "baseline_vol": 23.71,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 42.1,
+            "recovery_count": 76,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 7.0,
+            "rsi": 25.65,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.9,
+            "volume_score": 2.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 25.651189127972813,
+          "dma_100": 640.7555,
+          "change_from_peak_pct": -20.050210340616097
+        },
+        "current_value": 12203.174064329969,
+        "return_pct": 22.031740643299692
+      },
+      {
+        "date": "2025-03-17",
+        "price": 607.55,
+        "shares": 16.45955065426714,
+        "amount": 10000,
+        "score": 78.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 17.55,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.87,
+            "max_historical_dip": 20.24,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -4.49,
+            "dma_100": 636.08,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.01,
+            "current_vol": 23.92,
+            "baseline_vol": 23.79,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 10.0,
+            "avg_recovery_days": 42.1,
+            "recovery_count": 76,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 39.16,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.45,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 39.15776241357633,
+          "dma_100": 636.0835,
+          "change_from_peak_pct": -17.553263672140048
+        },
+        "current_value": 11833.593942885362,
+        "return_pct": 18.335939428853617
+      }
+    ]
+  },
+  {
+    "stock_name": "HAL",
+    "stock_symbol": "HAL",
+    "mode": "conservative",
+    "threshold": 75,
+    "backtest_period_days": 365,
+    "backtest_start_date": "2024-06-13",
+    "backtest_end_date": "2025-12-01",
+    "num_transactions": 10,
+    "total_invested": 100000,
+    "shares_accumulated": 23.01076140339656,
+    "avg_buy_price": 4345.792746572882,
+    "final_price": 4530.7,
+    "strategy_final_value": 104254.85669036879,
+    "remaining_capital": 0,
+    "strategy_return_pct": 4.25,
+    "baseline_start_price": 5099.7,
+    "baseline_shares": 19.608996607643586,
+    "baseline_final_value": 88842.4809302508,
+    "baseline_return_pct": -11.16,
+    "outperformance": 15.41,
+    "win_rate": 70.0,
+    "transactions": [
+      {
+        "date": "2024-08-05",
+        "price": 4591.1,
+        "shares": 2.1781272461937227,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 19.1,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.94,
+            "max_historical_dip": 20.4,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 5.0,
+            "distance_from_dma": 3.88,
+            "dma_100": 4419.75,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 3.0,
+            "vol_ratio": 1.43,
+            "current_vol": 51.41,
+            "baseline_vol": 35.96,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 23.25,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.12,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 23.248799344031852,
+          "dma_100": 4419.751,
+          "change_from_peak_pct": -19.09599541830036
+        },
+        "current_value": 9868.441114329898,
+        "return_pct": -1.3155888567010152
+      },
+      {
+        "date": "2024-09-13",
+        "price": 4644.95,
+        "shares": 2.1528757037212456,
+        "amount": 10000,
+        "score": 81.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 18.15,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.89,
+            "max_historical_dip": 20.45,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -2.98,
+            "dma_100": 4787.59,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 3.0,
+            "vol_ratio": 1.43,
+            "current_vol": 50.57,
+            "baseline_vol": 35.4,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 40.5,
+            "rsi_score": 3.0,
+            "volume_ratio": 0.55,
+            "volume_score": 0.0,
+            "support_score": 2.0,
+            "max_score": 10
+          },
+          "rsi": 40.49736794336538,
+          "dma_100": 4787.5915,
+          "change_from_peak_pct": -18.147054936340812
+        },
+        "current_value": 9754.033950849847,
+        "return_pct": -2.459660491501527
+      },
+      {
+        "date": "2024-09-24",
+        "price": 4402.45,
+        "shares": 2.2714624811184683,
+        "amount": 10000,
+        "score": 79.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 20.0,
+            "dip_percentage": 22.42,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.88,
+            "max_historical_dip": 25.43,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -8.67,
+            "dma_100": 4820.26,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 6.0,
+            "vol_ratio": 1.36,
+            "current_vol": 48.31,
+            "baseline_vol": 35.5,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 27.51,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.74,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 27.50685468076766,
+          "dma_100": 4820.264,
+          "change_from_peak_pct": -22.420370941451168
+        },
+        "current_value": 10291.315063203443,
+        "return_pct": 2.9131506320344305
+      },
+      {
+        "date": "2024-10-04",
+        "price": 4256.65,
+        "shares": 2.349265267287656,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 20.0,
+            "dip_percentage": 24.99,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.98,
+            "max_historical_dip": 25.43,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 0.0,
+            "distance_from_dma": -12.36,
+            "dma_100": 4856.81,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 6.0,
+            "vol_ratio": 1.33,
+            "current_vol": 47.24,
+            "baseline_vol": 35.4,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 30.99,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.85,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 30.98805327066195,
+          "dma_100": 4856.8054999999995,
+          "change_from_peak_pct": -24.989647121018553
+        },
+        "current_value": 10643.816146500183,
+        "return_pct": 6.438161465001831
+      },
+      {
+        "date": "2024-10-15",
+        "price": 4575.4,
+        "shares": 2.1856012589063254,
+        "amount": 10000,
+        "score": 80.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 19.37,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 15.0,
+            "dip_ratio": 0.73,
+            "max_historical_dip": 26.59,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -5.62,
+            "dma_100": 4847.86,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.97,
+            "current_vol": 34.42,
+            "baseline_vol": 35.4,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 2.0,
+            "rsi": 59.21,
+            "rsi_score": 1.0,
+            "volume_ratio": 0.98,
+            "volume_score": 0.0,
+            "support_score": 1.0,
+            "max_score": 10
+          },
+          "rsi": 59.21073653938326,
+          "dma_100": 4847.8625,
+          "change_from_peak_pct": -19.372659588528133
+        },
+        "current_value": 9902.303623726888,
+        "return_pct": -0.9769637627311204
+      },
+      {
+        "date": "2024-10-24",
+        "price": 4197.15,
+        "shares": 2.3825691242867184,
+        "amount": 10000,
+        "score": 78.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 20.0,
+            "dip_percentage": 26.04,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.98,
+            "max_historical_dip": 26.59,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 0.0,
+            "distance_from_dma": -12.64,
+            "dma_100": 4804.52,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.92,
+            "current_vol": 32.73,
+            "baseline_vol": 35.46,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 3.0,
+            "rsi": 47.35,
+            "rsi_score": 3.0,
+            "volume_ratio": 0.64,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 47.35461497421305,
+          "dma_100": 4804.523499999999,
+          "change_from_peak_pct": -26.038151460416763
+        },
+        "current_value": 10794.705931405835,
+        "return_pct": 7.947059314058351
+      },
+      {
+        "date": "2024-11-04",
+        "price": 4208.25,
+        "shares": 2.3762846789045327,
+        "amount": 10000,
+        "score": 88.0,
+        "recommendation": "STRONG BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 20.0,
+            "dip_percentage": 25.84,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.96,
+            "max_historical_dip": 26.89,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -11.77,
+            "dma_100": 4769.68,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.91,
+            "current_vol": 32.03,
+            "baseline_vol": 35.31,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 29.51,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.72,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 29.51057536692896,
+          "dma_100": 4769.675,
+          "change_from_peak_pct": -25.84254812987356
+        },
+        "current_value": 10766.232994712766,
+        "return_pct": 7.662329947127655
+      },
+      {
+        "date": "2024-11-13",
+        "price": 4066.9,
+        "shares": 2.4588753104330077,
+        "amount": 10000,
+        "score": 80.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 20.0,
+            "dip_percentage": 28.33,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 1.0,
+            "max_historical_dip": 28.33,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 0.0,
+            "distance_from_dma": -13.6,
+            "dma_100": 4707.14,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.94,
+            "current_vol": 33.37,
+            "baseline_vol": 35.45,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 43.63,
+            "rsi_score": 3.0,
+            "volume_ratio": 1.64,
+            "volume_score": 2.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 43.63049537874714,
+          "dma_100": 4707.143,
+          "change_from_peak_pct": -28.33340675800696
+        },
+        "current_value": 11140.426368978828,
+        "return_pct": 11.404263689788277
+      },
+      {
+        "date": "2024-11-26",
+        "price": 4364.55,
+        "shares": 2.291186949399136,
+        "amount": 10000,
+        "score": 80.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 18.04,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 15.0,
+            "dip_ratio": 0.63,
+            "max_historical_dip": 28.59,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -5.61,
+            "dma_100": 4624.2,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.94,
+            "current_vol": 33.14,
+            "baseline_vol": 35.43,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 2.0,
+            "rsi": 56.6,
+            "rsi_score": 1.0,
+            "volume_ratio": 1.28,
+            "volume_score": 0.0,
+            "support_score": 1.0,
+            "max_score": 10
+          },
+          "rsi": 56.60329531051965,
+          "dma_100": 4624.1965,
+          "change_from_peak_pct": -18.036619718309858
+        },
+        "current_value": 10380.680711642664,
+        "return_pct": 3.8068071164266435
+      },
+      {
+        "date": "2024-12-26",
+        "price": 4229.2,
+        "shares": 2.3645133831457485,
+        "amount": 10000,
+        "score": 75.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 14.56,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 10.0,
+            "dip_ratio": 0.51,
+            "max_historical_dip": 28.59,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -5.54,
+            "dma_100": 4477.48,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 0.86,
+            "current_vol": 30.29,
+            "baseline_vol": 35.23,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 20.0,
+            "avg_recovery_days": 10.0,
+            "recovery_count": 27,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 24.68,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.5,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 24.677551629016676,
+          "dma_100": 4477.475,
+          "change_from_peak_pct": -14.561616161616165
+        },
+        "current_value": 10712.900785018443,
+        "return_pct": 7.129007850184426
+      }
+    ]
+  },
+  {
+    "stock_name": "Bharti Airtel",
+    "stock_symbol": "BHARTIARTL",
+    "mode": "conservative",
+    "threshold": 75,
+    "backtest_period_days": 365,
+    "backtest_start_date": "2024-06-13",
+    "backtest_end_date": "2025-12-01",
+    "num_transactions": 3,
+    "total_invested": 30000,
+    "shares_accumulated": 19.029553278820636,
+    "avg_buy_price": 1576.4952314140326,
+    "final_price": 2089.7,
+    "strategy_final_value": 109766.05748675148,
+    "remaining_capital": 70000,
+    "strategy_return_pct": 9.77,
+    "baseline_start_price": 1425.75,
+    "baseline_shares": 70.13852358407856,
+    "baseline_final_value": 146568.47273364893,
+    "baseline_return_pct": 46.57,
+    "outperformance": -36.8,
+    "win_rate": 100.0,
+    "transactions": [
+      {
+        "date": "2024-11-04",
+        "price": 1591.25,
+        "shares": 6.284367635506677,
+        "amount": 10000,
+        "score": 83.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 12.0,
+            "dip_percentage": 10.55,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 0.98,
+            "max_historical_dip": 10.79,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 12.0,
+            "distance_from_dma": 2.64,
+            "dma_100": 1550.34,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.03,
+            "current_vol": 20.68,
+            "baseline_vol": 20.0,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 24.0,
+            "recovery_count": 8,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 9.0,
+            "rsi": 15.1,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.56,
+            "volume_score": 2.0,
+            "support_score": 2.0,
+            "max_score": 10
+          },
+          "rsi": 15.096952908587255,
+          "dma_100": 1550.3370000000002,
+          "change_from_peak_pct": -10.553681843732434
+        },
+        "current_value": 13132.443047918301,
+        "return_pct": 31.324430479183015
+      },
+      {
+        "date": "2024-11-13",
+        "price": 1550.45,
+        "shares": 6.4497403979489825,
+        "amount": 10000,
+        "score": 87.0,
+        "recommendation": "STRONG BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 12.85,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 1.0,
+            "max_historical_dip": 12.85,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -0.68,
+            "dma_100": 1561.14,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.02,
+            "current_vol": 20.24,
+            "baseline_vol": 19.93,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 24.0,
+            "recovery_count": 8,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 7.0,
+            "rsi": 13.74,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.35,
+            "volume_score": 0.0,
+            "support_score": 2.0,
+            "max_score": 10
+          },
+          "rsi": 13.739376770538243,
+          "dma_100": 1561.138,
+          "change_from_peak_pct": -12.847105115233273
+        },
+        "current_value": 13478.022509593988,
+        "return_pct": 34.780225095939876
+      },
+      {
+        "date": "2025-01-06",
+        "price": 1588.45,
+        "shares": 6.295445245364978,
+        "amount": 10000,
+        "score": 78.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 12.0,
+            "dip_percentage": 10.71,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.75,
+            "max_historical_dip": 14.27,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -1.3,
+            "dma_100": 1609.45,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.07,
+            "current_vol": 21.82,
+            "baseline_vol": 20.31,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 24.0,
+            "recovery_count": 8,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 6.0,
+            "rsi": 28.1,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.81,
+            "volume_score": 0.0,
+            "support_score": 1.0,
+            "max_score": 10
+          },
+          "rsi": 28.102836879432616,
+          "dma_100": 1609.4505,
+          "change_from_peak_pct": -10.711073636874646
+        },
+        "current_value": 13155.591929239194,
+        "return_pct": 31.555919292391938
+      }
+    ]
+  },
+  {
+    "stock_name": "Mahindra & Mahindra",
+    "stock_symbol": "M&M",
+    "mode": "conservative",
+    "threshold": 75,
+    "backtest_period_days": 365,
+    "backtest_start_date": "2024-06-13",
+    "backtest_end_date": "2025-12-01",
+    "num_transactions": 7,
+    "total_invested": 70000,
+    "shares_accumulated": 25.726340198423532,
+    "avg_buy_price": 2720.94668188713,
+    "final_price": 3741.6,
+    "strategy_final_value": 126257.67448642149,
+    "remaining_capital": 30000,
+    "strategy_return_pct": 26.26,
+    "baseline_start_price": 2861.7,
+    "baseline_shares": 34.944263899080966,
+    "baseline_final_value": 130747.45780480134,
+    "baseline_return_pct": 30.75,
+    "outperformance": -4.49,
+    "win_rate": 100.0,
+    "transactions": [
+      {
+        "date": "2024-10-24",
+        "price": 2826.35,
+        "shares": 3.5381322200010614,
+        "amount": 10000,
+        "score": 82.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 12.28,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.89,
+            "max_historical_dip": 13.77,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -1.06,
+            "dma_100": 2856.61,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.14,
+            "current_vol": 30.84,
+            "baseline_vol": 27.17,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 22.7,
+            "recovery_count": 78,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 7.0,
+            "rsi": 37.21,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.04,
+            "volume_score": 0.0,
+            "support_score": 2.0,
+            "max_score": 10
+          },
+          "rsi": 37.20883534136547,
+          "dma_100": 2856.612,
+          "change_from_peak_pct": -12.28236243443717
+        },
+        "current_value": 13238.275514355972,
+        "return_pct": 32.38275514355971
+      },
+      {
+        "date": "2024-11-13",
+        "price": 2798.95,
+        "shares": 3.572768359563408,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 13.13,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.82,
+            "max_historical_dip": 15.96,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -2.15,
+            "dma_100": 2860.43,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 6.0,
+            "vol_ratio": 1.2,
+            "current_vol": 32.81,
+            "baseline_vol": 27.42,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 22.7,
+            "recovery_count": 78,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 48.22,
+            "rsi_score": 3.0,
+            "volume_ratio": 0.98,
+            "volume_score": 0.0,
+            "support_score": 2.0,
+            "max_score": 10
+          },
+          "rsi": 48.217306441119064,
+          "dma_100": 2860.4315,
+          "change_from_peak_pct": -13.132739517705847
+        },
+        "current_value": 13367.870094142447,
+        "return_pct": 33.67870094142447
+      },
+      {
+        "date": "2025-01-24",
+        "price": 2801.4,
+        "shares": 3.5696437495537943,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 15.0,
+            "dip_percentage": 13.46,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.84,
+            "max_historical_dip": 15.96,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -5.34,
+            "dma_100": 2959.32,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 6.0,
+            "vol_ratio": 1.16,
+            "current_vol": 32.53,
+            "baseline_vol": 27.95,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 25.7,
+            "recovery_count": 103,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 27.02,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.04,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 27.020087600060393,
+          "dma_100": 2959.315,
+          "change_from_peak_pct": -13.45824129994903
+        },
+        "current_value": 13356.179053330476,
+        "return_pct": 33.56179053330476
+      },
+      {
+        "date": "2025-02-21",
+        "price": 2669.35,
+        "shares": 3.746230355704572,
+        "amount": 10000,
+        "score": 84.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 18.39,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 1.0,
+            "max_historical_dip": 18.39,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -10.44,
+            "dma_100": 2980.57,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.13,
+            "current_vol": 32.34,
+            "baseline_vol": 28.66,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 25.7,
+            "recovery_count": 103,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 8.0,
+            "rsi": 19.14,
+            "rsi_score": 5.0,
+            "volume_ratio": 2.66,
+            "volume_score": 3.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 19.141510011634296,
+          "dma_100": 2980.5725,
+          "change_from_peak_pct": -18.392210214157963
+        },
+        "current_value": 14016.895498904227,
+        "return_pct": 40.16895498904226
+      },
+      {
+        "date": "2025-03-05",
+        "price": 2726.6,
+        "shares": 3.6675713342624516,
+        "amount": 10000,
+        "score": 76.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 16.64,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 20.0,
+            "dip_ratio": 0.79,
+            "max_historical_dip": 20.97,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 8.0,
+            "distance_from_dma": -7.56,
+            "dma_100": 2949.53,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.14,
+            "current_vol": 32.96,
+            "baseline_vol": 29.01,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 25.7,
+            "recovery_count": 103,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 35.91,
+            "rsi_score": 5.0,
+            "volume_ratio": 0.93,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 35.90894344111604,
+          "dma_100": 2949.528,
+          "change_from_peak_pct": -16.641954172335254
+        },
+        "current_value": 13722.58490427639,
+        "return_pct": 37.22584904276389
+      },
+      {
+        "date": "2025-04-07",
+        "price": 2491.25,
+        "shares": 4.014049172102358,
+        "amount": 10000,
+        "score": 75.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 20.0,
+            "dip_percentage": 23.84,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 25.0,
+            "dip_ratio": 1.0,
+            "max_historical_dip": 23.84,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 0.0,
+            "distance_from_dma": -14.33,
+            "dma_100": 2907.8,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.08,
+            "current_vol": 31.29,
+            "baseline_vol": 29.08,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 25.7,
+            "recovery_count": 103,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 5.0,
+            "rsi": 27.57,
+            "rsi_score": 5.0,
+            "volume_ratio": 1.18,
+            "volume_score": 0.0,
+            "support_score": 0.0,
+            "max_score": 10
+          },
+          "rsi": 27.573914866848384,
+          "dma_100": 2907.7985,
+          "change_from_peak_pct": -23.837111542518226
+        },
+        "current_value": 15018.966382338183,
+        "return_pct": 50.189663823381835
+      },
+      {
+        "date": "2025-04-21",
+        "price": 2764.0,
+        "shares": 3.61794500723589,
+        "amount": 10000,
+        "score": 75.0,
+        "recommendation": "BUY",
+        "breakdown": {
+          "dip_depth": {
+            "score": 18.0,
+            "dip_percentage": 15.5,
+            "max_score": 20
+          },
+          "historical_context": {
+            "score": 15.0,
+            "dip_ratio": 0.65,
+            "max_historical_dip": 23.84,
+            "max_score": 25
+          },
+          "mean_reversion": {
+            "score": 15.0,
+            "distance_from_dma": -4.32,
+            "dma_100": 2888.81,
+            "max_score": 15
+          },
+          "volatility": {
+            "score": 10.0,
+            "vol_ratio": 1.1,
+            "current_vol": 32.06,
+            "baseline_vol": 29.23,
+            "max_score": 10
+          },
+          "recovery_speed": {
+            "score": 15.0,
+            "avg_recovery_days": 25.7,
+            "recovery_count": 103,
+            "max_score": 20
+          },
+          "technicals": {
+            "score": 2.0,
+            "rsi": 51.99,
+            "rsi_score": 1.0,
+            "volume_ratio": 0.89,
+            "volume_score": 0.0,
+            "support_score": 1.0,
+            "max_score": 10
+          },
+          "rsi": 51.9857573267598,
+          "dma_100": 2888.812,
+          "change_from_peak_pct": -15.49855546553753
+        },
+        "current_value": 13536.903039073804,
+        "return_pct": 35.36903039073805
+      }
+    ]
+  }
+]

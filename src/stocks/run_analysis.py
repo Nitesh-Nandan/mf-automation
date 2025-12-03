@@ -20,9 +20,9 @@ def main():
 
     # Example: Analyze Asian Paints
     analyzer = TechnicalAnalysis(
-        stock_name="ADANI TOTAL GAS LIMITED",
-        stock_symbol="ATGL",
-        instrument_key="NSE_EQ|INE399L01023",
+        stock_name="IRCTC Limited",
+        stock_symbol="IRCTC",
+        instrument_key="NSE_EQ|INE335Y01020",
     )
 
     print(get_ltp(analyzer.instrument_key))

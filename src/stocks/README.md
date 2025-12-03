@@ -5,8 +5,11 @@ Algorithmic dip-buying analyzer for fundamentally strong Indian stocks using 6-f
 ## 🎯 Quick Start
 
 ```bash
-# Run example analysis
+# Run live analysis
 python src/stocks/run_analysis.py
+
+# Backtest strategy over historical data
+python src/stocks/backtest/run_backtest.py --csv backtest/sample_stocks.csv
 ```
 
 ## 📁 Project Structure
@@ -18,7 +21,13 @@ src/stocks/
 ├── models.py                # Type definitions
 ├── historical_data.py       # Upstox API integration
 ├── run_analysis.py          # Standalone runner script
-├── stocks_watchlist.csv     # Your stock watchlist
+├── analyze_and_update_sheet.py  # Google Sheets integration
+├── backtest/                # 🆕 Backtesting framework
+│   ├── backtest_stock_strategy.py  # Backtest engine
+│   ├── run_backtest.py      # CLI interface
+│   ├── sample_stocks.csv    # Sample stocks for testing
+│   ├── README.md            # Comprehensive documentation
+│   └── QUICK_START.md       # 5-minute quick start
 └── docs/
     └── TECHNICAL_ALGORITHM_DOCUMENTATION.md  # Algorithm details
 ```
@@ -139,6 +148,33 @@ This algorithm assumes you've already filtered for fundamental quality (strong b
 - ✅ Relative volatility (compares to stock's own history)
 - ✅ 100 DMA for active dip-buying (more signals than 200 DMA)
 - ✅ Recovery speed as quality proxy
+
+## 🔬 Backtesting
+
+Validate the strategy over historical periods:
+
+```bash
+# Quick backtest with sample stocks
+cd src/stocks/backtest
+python run_backtest.py --csv sample_stocks.csv --mode conservative
+
+# Backtest your watchlist
+python run_backtest.py --csv ../stocks_watchlist.csv --mode moderate
+
+# Single stock, 1-year period
+python run_backtest.py --symbol ASIANPAINT --name "Asian Paints" \
+  --key "NSE_EQ|INE021A01026" --days 365
+```
+
+**Features:**
+- ✅ No future peeking (strict historical simulation)
+- ✅ Multiple risk modes (ultra_conservative to aggressive)
+- ✅ Win rate, outperformance vs buy-and-hold
+- ✅ Detailed transaction history with scores
+
+**Documentation:**
+- Quick start: `backtest/QUICK_START.md`
+- Full guide: `backtest/README.md`
 
 ## ⚠️ Important Warning
 
